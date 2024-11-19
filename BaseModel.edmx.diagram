@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="62bcf0d9dcad4a088a50dc581578c3a8" Name="Diagram1">
+        <EntityTypeShape EntityType="LogiClickeModel.Account" Width="1.5" PointX="6.875" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogiClickeModel.Childs" Width="1.5" PointX="0.875" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogiClickeModel.FaultTypes" Width="1.5" PointX="0.875" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogiClickeModel.Requests" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogiClickeModel.RequestStatus" Width="1.5" PointX="0.875" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogiClickeModel.Role" Width="1.5" PointX="4.875" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogiClickeModel.Subject" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LogiClickeModel.Teachers" Width="1.5" PointX="4.875" PointY="4.25" IsExpanded="true" />
+        <AssociationConnector Association="LogiClickeModel.FK__Account__id_role__1BC821DD" ManuallyRouted="false" />
+        <AssociationConnector Association="LogiClickeModel.FK__Requests__child___2A164134" ManuallyRouted="false" />
+        <AssociationConnector Association="LogiClickeModel.FK__Requests__fault___29221CFB" ManuallyRouted="false" />
+        <AssociationConnector Association="LogiClickeModel.FK__Requests__status__2B0A656D" ManuallyRouted="false" />
+        <AssociationConnector Association="LogiClickeModel.FK__Requests__subjec__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="LogiClickeModel.FK__Requests__teache__2BFE89A6" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

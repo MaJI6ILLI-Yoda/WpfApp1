@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfApp1.AddEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="AddEditWindow" Height="450" Width="400" ResizeMode="CanMinimize" Background="#1e2126" WindowState="Normal" WindowStyle="None">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" FontWeight="Bold"
+                Background="#FFF5192E" Foreground="#f7f7f7" Click="ButtonClickOut" FontSize="12" BorderThickness="0,0,0,0" Height="30" Margin="0,-2,170,0"/>
+        <TextBlock Text="Номер заявки" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#f7f7f7" FontSize="14"/>
+        <TextBlock Text="Дата" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#f7f7f7" FontSize="14"/>
+        <TextBlock Text="Предмет" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#f7f7f7" FontSize="14"/>
+        <TextBlock Text="Тип затруднения" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#f7f7f7" FontSize="14"/>
+        <TextBlock Text="Описание проблемы" Grid.Row="4" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#f7f7f7" FontSize="14"/>
+        <TextBlock Text="Ребенок" Grid.Row="5" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#f7f7f7" FontSize="14"/>
+        <TextBlock Text="Статус" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#f7f7f7" FontSize="14"/>
+
+        <TextBox Text="{Binding application_number}" Grid.Column="1" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="170" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent" Foreground="#f7f7f7" Background="#383a47"/>
+        <DatePicker SelectedDate="{Binding request_date}" Grid.Column="1" Grid.Row="1" Width="170" Height="24" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent" Background="#383a47" />
+        <TextBox Name="SubjectTextBox" Grid.Column="1" Grid.Row="2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="170" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent" Foreground="#f7f7f7" Background="#383a47"/>
+        <TextBox Name="FaultTypeTextBox" Grid.Column="1" Grid.Row="3" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="170" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent" Foreground="#f7f7f7" Background="#383a47"/>
+        <TextBox Text="{Binding problem_description}" Grid.Column="1" Grid.Row="4" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="170" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent" Foreground="#f7f7f7" Background="#383a47"/>
+        <TextBox Name="ChildTextBox" Grid.Column="1" Grid.Row="5" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="170" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent" Foreground="#f7f7f7" Background="#383a47"/>
+        <ComboBox SelectedItem="{Binding status_name}" Grid.Column="1" Grid.Row="6" x:Name="ComboStatus" DisplayMemberPath="status_name" Width="170" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent" Background="#383a47"/>
+        <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="7" Width="170" Height="24" Background="#2bbb77" BorderBrush="Transparent" FontWeight="Bold" Foreground="#f7f7f7" Name="BtnSave" Click="BtnSave_Click" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="115,0,0,0"></Button>
+    </Grid>
+</Window>
