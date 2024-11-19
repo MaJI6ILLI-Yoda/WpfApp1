@@ -10,8 +10,10 @@
             <PropertyRef Name="id_account" />
           </Key>
           <Property Name="id_account" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Login" Type="nvarchar" MaxLength="45" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="45" />
           <Property Name="Password" Type="nvarchar" MaxLength="100" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="EmailAdress" Type="nvarchar" MaxLength="100" />
           <Property Name="id_role" Type="int" />
         </EntityType>
         <EntityType Name="Childs">
@@ -70,7 +72,7 @@
           <Property Name="teacher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="teacher_name" Type="varchar" MaxLength="255" />
         </EntityType>
-        <Association Name="FK__Account__id_role__1BC821DD">
+        <Association Name="FK__Account__id_role__05D8E0BE">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -82,7 +84,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__child___2A164134">
+        <Association Name="FK__Requests__child___7B5B524B">
           <End Role="Childs" Type="Self.Childs" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -94,7 +96,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__fault___29221CFB">
+        <Association Name="FK__Requests__fault___7A672E12">
           <End Role="FaultTypes" Type="Self.FaultTypes" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -106,7 +108,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__status__2B0A656D">
+        <Association Name="FK__Requests__status__7C4F7684">
           <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -118,7 +120,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__subjec__282DF8C2">
+        <Association Name="FK__Requests__subjec__797309D9">
           <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -130,7 +132,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__teache__2BFE89A6">
+        <Association Name="FK__Requests__teache__7D439ABD">
           <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -151,27 +153,27 @@
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Account__id_role__1BC821DD" Association="Self.FK__Account__id_role__1BC821DD">
+          <AssociationSet Name="FK__Account__id_role__05D8E0BE" Association="Self.FK__Account__id_role__05D8E0BE">
             <End Role="Role" EntitySet="Role" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__child___2A164134" Association="Self.FK__Requests__child___2A164134">
+          <AssociationSet Name="FK__Requests__child___7B5B524B" Association="Self.FK__Requests__child___7B5B524B">
             <End Role="Childs" EntitySet="Childs" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__fault___29221CFB" Association="Self.FK__Requests__fault___29221CFB">
+          <AssociationSet Name="FK__Requests__fault___7A672E12" Association="Self.FK__Requests__fault___7A672E12">
             <End Role="FaultTypes" EntitySet="FaultTypes" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__status__2B0A656D" Association="Self.FK__Requests__status__2B0A656D">
+          <AssociationSet Name="FK__Requests__status__7C4F7684" Association="Self.FK__Requests__status__7C4F7684">
             <End Role="RequestStatus" EntitySet="RequestStatus" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__subjec__282DF8C2" Association="Self.FK__Requests__subjec__282DF8C2">
+          <AssociationSet Name="FK__Requests__subjec__797309D9" Association="Self.FK__Requests__subjec__797309D9">
             <End Role="Subject" EntitySet="Subject" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__teache__2BFE89A6" Association="Self.FK__Requests__teache__2BFE89A6">
+          <AssociationSet Name="FK__Requests__teache__7D439ABD" Association="Self.FK__Requests__teache__7D439ABD">
             <End Role="Teachers" EntitySet="Teachers" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
@@ -186,10 +188,12 @@
             <PropertyRef Name="id_account" />
           </Key>
           <Property Name="id_account" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EmailAdress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="id_role" Type="Int32" />
-          <NavigationProperty Name="Role" Relationship="Self.FK__Account__id_role__1BC821DD" FromRole="Account" ToRole="Role" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Account__id_role__05D8E0BE" FromRole="Account" ToRole="Role" />
         </EntityType>
         <EntityType Name="Childs">
           <Key>
@@ -197,7 +201,7 @@
           </Key>
           <Property Name="child_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="child_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__child___2A164134" FromRole="Childs" ToRole="Requests" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__child___7B5B524B" FromRole="Childs" ToRole="Requests" />
         </EntityType>
         <EntityType Name="FaultTypes">
           <Key>
@@ -205,7 +209,7 @@
           </Key>
           <Property Name="fault_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fault_type_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__fault___29221CFB" FromRole="FaultTypes" ToRole="Requests" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__fault___7A672E12" FromRole="FaultTypes" ToRole="Requests" />
         </EntityType>
         <EntityType Name="Requests">
           <Key>
@@ -220,11 +224,11 @@
           <Property Name="child_id" Type="Int32" />
           <Property Name="status_id" Type="Int32" />
           <Property Name="teacher_id" Type="Int32" />
-          <NavigationProperty Name="Childs" Relationship="Self.FK__Requests__child___2A164134" FromRole="Requests" ToRole="Childs" />
-          <NavigationProperty Name="FaultTypes" Relationship="Self.FK__Requests__fault___29221CFB" FromRole="Requests" ToRole="FaultTypes" />
-          <NavigationProperty Name="RequestStatus" Relationship="Self.FK__Requests__status__2B0A656D" FromRole="Requests" ToRole="RequestStatus" />
-          <NavigationProperty Name="Subject" Relationship="Self.FK__Requests__subjec__282DF8C2" FromRole="Requests" ToRole="Subject" />
-          <NavigationProperty Name="Teachers" Relationship="Self.FK__Requests__teache__2BFE89A6" FromRole="Requests" ToRole="Teachers" />
+          <NavigationProperty Name="Childs" Relationship="Self.FK__Requests__child___7B5B524B" FromRole="Requests" ToRole="Childs" />
+          <NavigationProperty Name="FaultTypes" Relationship="Self.FK__Requests__fault___7A672E12" FromRole="Requests" ToRole="FaultTypes" />
+          <NavigationProperty Name="RequestStatus" Relationship="Self.FK__Requests__status__7C4F7684" FromRole="Requests" ToRole="RequestStatus" />
+          <NavigationProperty Name="Subject" Relationship="Self.FK__Requests__subjec__797309D9" FromRole="Requests" ToRole="Subject" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK__Requests__teache__7D439ABD" FromRole="Requests" ToRole="Teachers" />
         </EntityType>
         <EntityType Name="RequestStatus">
           <Key>
@@ -232,7 +236,7 @@
           </Key>
           <Property Name="status_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="status_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__status__2B0A656D" FromRole="RequestStatus" ToRole="Requests" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__status__7C4F7684" FromRole="RequestStatus" ToRole="Requests" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -240,7 +244,7 @@
           </Key>
           <Property Name="id_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name_role" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Account__id_role__1BC821DD" FromRole="Role" ToRole="Account" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Account__id_role__05D8E0BE" FromRole="Role" ToRole="Account" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
@@ -248,7 +252,7 @@
           </Key>
           <Property Name="subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="subject_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__subjec__282DF8C2" FromRole="Subject" ToRole="Requests" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__subjec__797309D9" FromRole="Subject" ToRole="Requests" />
         </EntityType>
         <EntityType Name="Teachers">
           <Key>
@@ -256,9 +260,9 @@
           </Key>
           <Property Name="teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="teacher_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__teache__2BFE89A6" FromRole="Teachers" ToRole="Requests" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__teache__7D439ABD" FromRole="Teachers" ToRole="Requests" />
         </EntityType>
-        <Association Name="FK__Account__id_role__1BC821DD">
+        <Association Name="FK__Account__id_role__05D8E0BE">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -270,7 +274,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__child___2A164134">
+        <Association Name="FK__Requests__child___7B5B524B">
           <End Role="Childs" Type="Self.Childs" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -282,7 +286,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__fault___29221CFB">
+        <Association Name="FK__Requests__fault___7A672E12">
           <End Role="FaultTypes" Type="Self.FaultTypes" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -294,7 +298,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__status__2B0A656D">
+        <Association Name="FK__Requests__status__7C4F7684">
           <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -306,7 +310,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__subjec__282DF8C2">
+        <Association Name="FK__Requests__subjec__797309D9">
           <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -318,7 +322,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__teache__2BFE89A6">
+        <Association Name="FK__Requests__teache__7D439ABD">
           <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -330,7 +334,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LogiClikeEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LogiClickeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account" EntityType="Self.Account" />
           <EntitySet Name="Childs" EntityType="Self.Childs" />
           <EntitySet Name="FaultTypes" EntityType="Self.FaultTypes" />
@@ -339,27 +343,27 @@
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="Subject" EntityType="Self.Subject" />
           <EntitySet Name="Teachers" EntityType="Self.Teachers" />
-          <AssociationSet Name="FK__Account__id_role__1BC821DD" Association="Self.FK__Account__id_role__1BC821DD">
+          <AssociationSet Name="FK__Account__id_role__05D8E0BE" Association="Self.FK__Account__id_role__05D8E0BE">
             <End Role="Role" EntitySet="Role" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__child___2A164134" Association="Self.FK__Requests__child___2A164134">
+          <AssociationSet Name="FK__Requests__child___7B5B524B" Association="Self.FK__Requests__child___7B5B524B">
             <End Role="Childs" EntitySet="Childs" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__fault___29221CFB" Association="Self.FK__Requests__fault___29221CFB">
+          <AssociationSet Name="FK__Requests__fault___7A672E12" Association="Self.FK__Requests__fault___7A672E12">
             <End Role="FaultTypes" EntitySet="FaultTypes" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__status__2B0A656D" Association="Self.FK__Requests__status__2B0A656D">
+          <AssociationSet Name="FK__Requests__status__7C4F7684" Association="Self.FK__Requests__status__7C4F7684">
             <End Role="RequestStatus" EntitySet="RequestStatus" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__subjec__282DF8C2" Association="Self.FK__Requests__subjec__282DF8C2">
+          <AssociationSet Name="FK__Requests__subjec__797309D9" Association="Self.FK__Requests__subjec__797309D9">
             <End Role="Subject" EntitySet="Subject" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__teache__2BFE89A6" Association="Self.FK__Requests__teache__2BFE89A6">
+          <AssociationSet Name="FK__Requests__teache__7D439ABD" Association="Self.FK__Requests__teache__7D439ABD">
             <End Role="Teachers" EntitySet="Teachers" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
@@ -369,13 +373,15 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище LogiClickeModelContainer" CdmEntityContainer="LogiClikeEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LogiClickeModelContainer" CdmEntityContainer="LogiClickeEntities">
           <EntitySetMapping Name="Account">
             <EntityTypeMapping TypeName="LogiClickeModel.Account">
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="id_account" ColumnName="id_account" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EmailAdress" ColumnName="EmailAdress" />
                 <ScalarProperty Name="id_role" ColumnName="id_role" />
               </MappingFragment>
             </EntityTypeMapping>

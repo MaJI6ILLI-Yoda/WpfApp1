@@ -22,10 +22,10 @@ namespace WpfApp1
             InitializeComponent();
             _currentRequest = request;
 
-            StatusComboBox.ItemsSource = LogiClikeEntities.GetContext().RequestStatus.ToList();
-            TeacherComboBox.ItemsSource = LogiClikeEntities.GetContext().Teachers.ToList();
-            FaultTypeComboBox.ItemsSource = LogiClikeEntities.GetContext().FaultTypes.ToList();
-            ChildComboBox.ItemsSource = LogiClikeEntities.GetContext().Childs.ToList();
+            StatusComboBox.ItemsSource = LogiClickeEntities.GetContext().RequestStatus.ToList();
+            TeacherComboBox.ItemsSource = LogiClickeEntities.GetContext().Teachers.ToList();
+            FaultTypeComboBox.ItemsSource = LogiClickeEntities.GetContext().FaultTypes.ToList();
+            ChildComboBox.ItemsSource = LogiClickeEntities.GetContext().Childs.ToList();
             DescriptionTextBox.Text = request.problem_description;
             StatusComboBox.SelectedItem = request.RequestStatus;
             TeacherComboBox.SelectedItem = request.Teachers;
@@ -36,7 +36,7 @@ namespace WpfApp1
         private void UpdateButtonClick(object sender, RoutedEventArgs e)
         {
            
-            var context = LogiClikeEntities.GetContext();
+            var context = LogiClickeEntities.GetContext();
 
             _currentRequest.problem_description = DescriptionTextBox.Text;
             _currentRequest.status_id = ((RequestStatus)StatusComboBox.SelectedItem).status_id;

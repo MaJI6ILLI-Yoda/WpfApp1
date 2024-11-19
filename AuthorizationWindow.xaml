@@ -5,30 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="AuthorizationWindow" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" Width="458" Height="600" Background="#272932" WindowState="Normal" ResizeMode="CanMinimize" WindowStyle="None">
+        Title="AuthorizationWindow" WindowStartupLocation="CenterScreen" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400" Height="500" Background="#272932" WindowState="Normal" ResizeMode="CanMinimize" WindowStyle="None">
     <Grid>
-        <Label Content="Авторизация" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="26" Foreground="#f7f7f7" Margin="0,62,0,0"/>
-        <TextBox x:Name="textBoxLogin" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="35" FontSize="20" Background="#383a47" Foreground="#f7f7f7" BorderThickness="0,0,0,0" />
-        <TextBox x:Name="textBoxPassword" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" HorizontalAlignment="Center" Margin="0,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" Height="35" FontSize="20" Background="#383a47" Foreground="#f7f7f7" BorderThickness="0,0,0,0" />
-        <Button Content="Войти" HorizontalAlignment="Center" Margin="0,265,0,0" VerticalAlignment="Top" Width="300" Height="35" FontWeight="Bold"
-                Background="#2bbb77" Foreground="#f7f7f7"  Click="ButtonLogin" FontSize="18" BorderThickness="0,0,0,0"/>
-        <Button Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" FontWeight="Bold"
-        Background="#FFF5192E" Foreground="#f7f7f7" Click="ButtonClickOut" FontSize="12" BorderThickness="0,0,0,0" Height="30"/>
-        <Label Content="Забыли пароль?" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" Foreground="#898d9f" Margin="0,315,0,0"/>
-        <Label Content="Для входа в демонстрационную версию" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,400,0,0" FontSize="14" Foreground="#f7f7f7"/>
-        <Label Content="используйте" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,425,0,0" FontSize="14" Foreground="#f7f7f7"/>
-        <Label Content="Логин:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="92,460,0,0" FontSize="14" Foreground="#f7f7f7" Width="51"/>
-        <Label Content="Администратор" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="143,460,0,0" FontSize="14" Foreground="#2ebb7d"/>
-        <Label Content="Пароль:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="272,460,0,0" FontSize="14" Foreground="#f7f7f7"/>
-        <Label Content="123" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="331,460,0,0" FontSize="14" Foreground="#2ebb7d" Width="33" RenderTransformOrigin="0.5,0.5">
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="0.227"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="0.121"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
+        <Label Content="Авторизация" FontSize="26" Foreground="#f7f7f7" Margin="111,85,124,370"/>
+
+        <Label Content="Email" FontSize="20" Foreground="#f7f7f7" Margin="56,153,287,310"/>
+        <TextBox x:Name="textBoxEmail" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="50,189,50,276" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxEmail_MouseDoubleClick" Text="Example@yandex.ru"/>
+
+        <Label Content="Пароль" FontSize="20" Foreground="#f7f7f7" Margin="56,227,264,236"/>
+        <TextBox x:Name="textBoxPassword" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="50,264,50,201" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxPassword_MouseDoubleClick" Text="Введите свой пароль"/>
+
+        <Button Content="Войти" Margin="118,339,118,126" FontWeight="Bold" Background="#2bbb77" Foreground="#f7f7f7"  Click="ButtonLogin" FontSize="20" BorderThickness="0,0,0,0" Cursor="Hand" IsDefault="True"/>
+
+        <Button Content="X" FontWeight="Bold" Background="#FFF5192E" Foreground="#f7f7f7" Click="ButtonAuthorizationClickOut" FontSize="12" BorderThickness="0,0,0,0" Cursor="Hand" IsCancel="True" Margin="370,0,0,470"/>
+
+        <Label Content="Нет учетной записи?" FontSize="16" Foreground="#898d9f" Margin="76,384,162,85"/>
+        <Button Content="Создайте её!" Click="BtnRegistration_Click" Background="Transparent" Foreground="#2ebb7d" BorderThickness="0,0,0,0" FontSize="16" Margin="243,388,62,89" Cursor="Hand"/>
     </Grid>
 </Window>

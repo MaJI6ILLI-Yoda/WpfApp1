@@ -28,8 +28,8 @@
         <ComboBox x:Name="ChildComboBox" DisplayMemberPath="child_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
 
         <TextBlock FontSize="24"/>
-        <Button Content="Обновить" Click="UpdateButtonClick" Background="#2bbb77" Foreground="#f7f7f7" Margin="0,3,0,0" Height="30" FontSize="18" FontWeight="Bold" BorderThickness="0,0,0,0"/>
+        <Button Content="Обновить" Click="UpdateButtonClick" Background="#2bbb77" Foreground="#f7f7f7" Margin="0,3,0,0" Height="30" FontSize="18" FontWeight="Bold" BorderThickness="0,0,0,0" IsDefault="True"/>
         <Button Content="X" HorizontalAlignment="Right" Margin="20,-474 ,0,400" Width="30" FontWeight="Bold"
-                Background="#FFF5192E" Foreground="#f7f7f7" Click="ButtonClickOut" FontSize="14" BorderThickness="0,0,0,0" Height="25"/>
+                Background="#FFF5192E" Foreground="#f7f7f7" Click="ButtonClickOut" FontSize="14" BorderThickness="0,0,0,0" Height="25" IsCancel="True"/>
     </StackPanel>
 </Window>

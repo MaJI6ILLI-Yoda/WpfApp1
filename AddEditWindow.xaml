@@ -24,7 +24,7 @@
         </Grid.RowDefinitions>
 
         <Button Content="X" HorizontalAlignment="Right" VerticalAlignment="Top" Width="30" FontWeight="Bold"
-                Background="#FFF5192E" Foreground="#f7f7f7" Click="ButtonClickOut" FontSize="12" BorderThickness="0,0,0,0" Height="30" Margin="0,-2,170,0"/>
+                Background="#FFF5192E" Foreground="#f7f7f7" Click="ButtonClickOut" FontSize="12" BorderThickness="0,0,0,0" Height="30" Margin="0,-2,170,0" IsCancel="True"/>
         <TextBlock Text="Номер заявки" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#f7f7f7" FontSize="14"/>
         <TextBlock Text="Дата" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#f7f7f7" FontSize="14"/>
         <TextBlock Text="Предмет" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#f7f7f7" FontSize="14"/>
@@ -40,6 +40,6 @@
         <TextBox Text="{Binding problem_description}" Grid.Column="1" Grid.Row="4" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="170" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent" Foreground="#f7f7f7" Background="#383a47"/>
         <TextBox Name="ChildTextBox" Grid.Column="1" Grid.Row="5" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="170" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent" Foreground="#f7f7f7" Background="#383a47"/>
         <ComboBox SelectedItem="{Binding status_name}" Grid.Column="1" Grid.Row="6" x:Name="ComboStatus" DisplayMemberPath="status_name" Width="170" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="Transparent" Background="#383a47"/>
-        <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="7" Width="170" Height="24" Background="#2bbb77" BorderBrush="Transparent" FontWeight="Bold" Foreground="#f7f7f7" Name="BtnSave" Click="BtnSave_Click" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="115,0,0,0"></Button>
+        <Button Content="Сохранить" Grid.ColumnSpan="2" Grid.Row="7" Width="170" Height="24" Background="#2bbb77" BorderBrush="Transparent" FontWeight="Bold" Foreground="#f7f7f7" Name="BtnSave" Click="BtnSave_Click" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="115,0,0,0" IsDefault="True"></Button>
     </Grid>
 </Window>

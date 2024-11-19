@@ -16,9 +16,9 @@ namespace WpfApp1
     internal class Authorization
     {
         public static string authorizationRole;
-        public static string GetRole(string login, string password)
+        public static string GetRole(string emailadress, string password)
         {
-            var account = LogiClikeEntities.GetContext().Account.FirstOrDefault(a => a.Login == login && a.Password == password);
+            var account = LogiClickeEntities.GetContext().Account.FirstOrDefault(a => a.EmailAdress == emailadress && a.Password == password);
             if (account != null) return authorizationRole = account.Role.name_role;
             return null;
         }

@@ -23,7 +23,7 @@ namespace WpfApp1
 
         private void ButtonLogin(object sender, RoutedEventArgs e)
         {
-            if (Authorization.GetRole(textBoxLogin.Text, textBoxPassword.Text) == null)
+            if (Authorization.GetRole(textBoxEmail.Text, textBoxPassword.Text) == null)
             {
                 MessageBox.Show("Данные введены не корректно!", "Предупреждение!", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
@@ -36,10 +36,27 @@ namespace WpfApp1
             }
         }
 
-        private void ButtonClickOut(object sender, RoutedEventArgs e)
+        private void ButtonAuthorizationClickOut(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
+            this.Close();
+        }
+
+        private void textBoxEmail_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            textBoxEmail.Clear();
+        }
+
+        private void textBoxPassword_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            textBoxPassword.Clear();
+        }
+
+        private void BtnRegistration_Click(object sender, RoutedEventArgs e)
+        {
+            RegistrationWindow registrationWindow = new RegistrationWindow();
+            registrationWindow.Show();
             this.Close();
         }
     }

@@ -28,7 +28,7 @@ namespace WpfApp1
         {
             InitializeComponent();
             DataContext = request;
-            ComboStatus.ItemsSource = LogiClikeEntities.GetContext().RequestStatus.ToList();
+            ComboStatus.ItemsSource = LogiClickeEntities.GetContext().RequestStatus.ToList();
         }
         private void BtnSave_Click(Object sender, RoutedEventArgs e)
         {
@@ -40,7 +40,7 @@ namespace WpfApp1
             else if (!int.TryParse(request.application_number.ToString(), out int applicationNumber) || applicationNumber < 0)
                 error.AppendLine("Номер заявки должен иметь положительное или отрицательное значение!");
 
-            else if (LogiClikeEntities.GetContext().Requests.Any(row => row.application_number == request.application_number))
+            else if (LogiClickeEntities.GetContext().Requests.Any(row => row.application_number == request.application_number))
                 error.AppendLine("Номер заявки уже существует!");
 
             if (request.request_date == null || request.request_date == DateTime.MinValue)
@@ -70,7 +70,7 @@ namespace WpfApp1
 
             try
             {
-                var context = LogiClikeEntities.GetContext();
+                var context = LogiClickeEntities.GetContext();
                 subject.subject_name = SubjectTextBox.Text;         
                 faultType.fault_type_name = FaultTypeTextBox.Text;
                 child.child_name = ChildTextBox.Text;

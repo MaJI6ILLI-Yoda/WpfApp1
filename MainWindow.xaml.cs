@@ -29,14 +29,14 @@ namespace WpfApp1
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             RefreshTechnoServiceDataGrid();
-            ComboStatus.ItemsSource = LogiClikeEntities.GetContext().RequestStatus.ToList();
-            Box.Text = LogiClikeEntities.GetContext().Requests.Count(r => r.status_id == 2).ToString();
+            ComboStatus.ItemsSource = LogiClickeEntities.GetContext().RequestStatus.ToList();
+            Box.Text = LogiClickeEntities.GetContext().Requests.Count(r => r.status_id == 2).ToString();
             Vis();
         }
 
         private void RefreshTechnoServiceDataGrid()
         {
-            var context = LogiClikeEntities.GetContext();
+            var context = LogiClickeEntities.GetContext();
             var requestWithRelations = context.Requests
                 .Include(r => r.Subject)
                 .Include(r => r.FaultTypes)
@@ -91,7 +91,7 @@ namespace WpfApp1
             var servisForRemoving = TechnoService.SelectedItems.Cast<Requests>().ToList();
             if (servisForRemoving.Any() && MessageBox.Show($"Вы точно хотите удалить следующее количество {servisForRemoving.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                var context = LogiClikeEntities.GetContext();
+                var context = LogiClickeEntities.GetContext();
                 context.Requests.RemoveRange(servisForRemoving);
                 context.SaveChanges();
                 MessageBox.Show("Данные успешно удалены!");
@@ -109,7 +109,7 @@ namespace WpfApp1
             if (ComboStatus.SelectedItem is RequestStatus selectedStatus)
             {
                 int selectedStatusID = selectedStatus.status_id;
-                var context = LogiClikeEntities.GetContext();
+                var context = LogiClickeEntities.GetContext();
                 TechnoService.ItemsSource = context.Requests
                     .Include(r => r.Subject)
                     .Include(r => r.FaultTypes)
@@ -122,7 +122,7 @@ namespace WpfApp1
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var searchText = SearchBox.Text.ToLower();
-            var context = LogiClikeEntities.GetContext();
+            var context = LogiClickeEntities.GetContext();
             try
             {
                 TechnoService.ItemsSource = context.Requests
