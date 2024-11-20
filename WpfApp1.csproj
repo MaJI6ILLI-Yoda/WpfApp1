@@ -88,6 +88,21 @@
     <Compile Include="FaultTypes.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GreetingWindow1.xaml.cs">
+      <DependentUpon>GreetingWindow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GreetingWindow2.xaml.cs">
+      <DependentUpon>GreetingWindow2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GreetingWindow3.xaml.cs">
+      <DependentUpon>GreetingWindow3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GreetingWindow4.xaml.cs">
+      <DependentUpon>GreetingWindow4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GreetingWindow5.xaml.cs">
+      <DependentUpon>GreetingWindow5.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RefreshWindow.xaml.cs">
       <DependentUpon>RefreshWindow.xaml</DependentUpon>
     </Compile>
@@ -114,6 +129,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GreetingWindow1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GreetingWindow2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GreetingWindow3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GreetingWindow4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GreetingWindow5.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -193,6 +228,15 @@
       <DependentUpon>BaseModel.edmx</DependentUpon>
       <LastGenOutput>BaseModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Image9.png" />
+    <Resource Include="Image8.png" />
+    <Resource Include="Image7.png" />
+    <Resource Include="Image6.png" />
+    <Resource Include="Image5.png" />
+    <Resource Include="Image4.png" />
+    <Resource Include="Image3.png" />
+    <Resource Include="Image2.png" />
+    <Resource Include="Image1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
