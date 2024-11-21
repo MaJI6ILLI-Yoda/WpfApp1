@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApp1.SubWindows._5RoofingMaterialsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.SubWindows"
+        mc:Ignorable="d"
+        Title="_5RoofingMaterialsWindow" Height="400" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="#1e2126" WindowStyle="None">
+    <Grid>
+        <Button Background="Transparent" Click="RoofingMaterials_ClickClose" IsCancel="True"/>
+
+        <TextBlock Text="Водосточн системы" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Cursor="Arrow" Margin="37,48,759,245"/>
+        <Image Margin="37,167,759,49" Source="\Images\5RoofingMaterials\1DrainageSystems.png" Stretch="Fill"/>
+
+        <TextBlock Text="Соффиты" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Cursor="Arrow" Margin="278,74,510,272"/>
+        <Image Margin="278,167,518,49" Source="\Images\5RoofingMaterials\2Soffits.png" Stretch="Fill"/>
+
+        <TextBlock Text="Профиль соффитов" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Cursor="Arrow" Margin="519,48,277,245"/>
+        <Image Margin="519,167,277,49" Source="\Images\5RoofingMaterials\3ProfileSoffits.png" Stretch="Fill"/>
+
+        <TextBlock Text="Монтаж кровли" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Cursor="Arrow" Margin="760,48,36,245"/>
+        <Image Margin="760,167,36,49" Source="\Images\5RoofingMaterials\4RoofInstallation.png" Stretch="Fill"/>
+    </Grid>
+</Window>

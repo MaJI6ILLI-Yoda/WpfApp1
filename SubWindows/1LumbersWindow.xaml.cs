@@ -12,29 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfApp1
+namespace WpfApp1.SubWindows
 {
     /// <summary>
-    /// Логика взаимодействия для GreetingWindow5.xaml
+    /// Логика взаимодействия для _1LumbersWindow.xaml
     /// </summary>
-    public partial class GreetingWindow5 : Window
+    public partial class _1LumbersWindow : Window
     {
-        public GreetingWindow5()
+        public _1LumbersWindow()
         {
             InitializeComponent();
         }
 
-        private void GreetingWindow5_ClickNext(object sender, RoutedEventArgs e)
+        private void Lumbers_ClickClose (object sender, RoutedEventArgs e)
         {
             CatalogWindow catalogwindow = new CatalogWindow();
             catalogwindow.Show();
-            this.Close();
-        }
-        private void GreetingWindow5_ClickClose(object sender, RoutedEventArgs e)
-        {
-            GreetingWindow4 greetingwindow4 = new GreetingWindow4();
-            greetingwindow4.Show();
-            this.Close();
         }
     }
 }

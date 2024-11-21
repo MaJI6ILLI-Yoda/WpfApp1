@@ -82,6 +82,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BaseModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="CatalogWindow.xaml.cs">
+      <DependentUpon>CatalogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Childs.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
@@ -121,6 +124,30 @@
     <Compile Include="Subject.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="SubWindows\1LumbersWindow.xaml.cs">
+      <DependentUpon>1LumbersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubWindows\2FinishingMaterialsWindow.xaml.cs">
+      <DependentUpon>2FinishingMaterialsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubWindows\3InsulationMaterialsWindow.xaml.cs">
+      <DependentUpon>3InsulationMaterialsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubWindows\4FencesWindow.xaml.cs">
+      <DependentUpon>4FencesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubWindows\5RoofingMaterialsWindow.xaml.cs">
+      <DependentUpon>5RoofingMaterialsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubWindows\6RoadSurfacesWindow.xaml.cs">
+      <DependentUpon>6RoadSurfacesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubWindows\7RolledMetalWindow.xaml.cs">
+      <DependentUpon>7RolledMetalWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubWindows\8WallpaperWindow.xaml.cs">
+      <DependentUpon>8WallpaperWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Teachers.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
@@ -129,6 +156,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AuthorizationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CatalogWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,6 +210,38 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SubWindows\1LumbersWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindows\2FinishingMaterialsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindows\3InsulationMaterialsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindows\4FencesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindows\5RoofingMaterialsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindows\6RoadSurfacesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindows\7RolledMetalWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindows\8WallpaperWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -218,6 +281,53 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\8Wallpaper\1DecorativeWallpaper.png" />
+    <Resource Include="Images\8Wallpaper\2PhotoWallpapers.png" />
+    <Resource Include="Images\8Wallpaper\3LiquidWallpaper.png" />
+    <Resource Include="Images\8Wallpaper\4Frescoes.png" />
+    <Resource Include="Images\7RolledMetal\1Pipes.png" />
+    <Resource Include="Images\7RolledMetal\2AluminumSheet.png" />
+    <Resource Include="Images\7RolledMetal\3CompositeFittings.png" />
+    <Resource Include="Images\7RolledMetal\4ReinforcingMesh.png" />
+    <Resource Include="Images\6RoadSurfaces\1Rubber.png" />
+    <Resource Include="Images\6RoadSurfaces\2PavingSlabs.png" />
+    <Resource Include="Images\6RoadSurfaces\3Curbs.png" />
+    <Resource Include="Images\5RoofingMaterials\1DrainageSystems.png" />
+    <Resource Include="Images\5RoofingMaterials\2Soffits.png" />
+    <Resource Include="Images\5RoofingMaterials\3ProfileSoffits.png" />
+    <Resource Include="Images\5RoofingMaterials\4RoofInstallation.png" />
+    <Resource Include="Images\4Fences\1PlasticPicketFence.png" />
+    <Resource Include="Images\4Fences\2MetalPicketFence.png" />
+    <Resource Include="Images\4Fences\3Sectional.png" />
+    <Resource Include="Images\4Fences\4Gates.png" />
+    <Resource Include="Images\3InsulationMaterials\1ThermalInsulation.png" />
+    <Resource Include="Images\3InsulationMaterials\2WindInsulation.png" />
+    <Resource Include="Images\3InsulationMaterials\3SoundInsulation.png" />
+    <Resource Include="Images\3InsulationMaterials\4VibrationIsolation.png" />
+    <Resource Include="Images\2FinishingMaterials\1WallDecoration.png" />
+    <Resource Include="Images\2FinishingMaterials\2FloorCoverings.png" />
+    <Resource Include="Images\2FinishingMaterials\3Windows.png" />
+    <Resource Include="Images\2FinishingMaterials\4Doors.png" />
+    <Resource Include="Images\1Lumbers\4BlockHouse.png" />
+    <Resource Include="Images\1Lumbers\3Lining.png" />
+    <Resource Include="Images\1Lumbers\2Balk.png" />
+    <Resource Include="Images\1Lumbers\1Board.png" />
+    <Resource Include="Icons\IconShoppingCart.png" />
+    <Resource Include="Icons\IconProfile.png" />
+    <Resource Include="Icons\IconNetoSky.png" />
+    <Resource Include="GreetingImages\GreetingWhoAreWe.png" />
+    <Resource Include="GreetingImages\GreetingOurServices.png" />
+    <Resource Include="GreetingImages\GreetingOurProjects.png" />
+    <Resource Include="GreetingImages\GreetingOurClients.png" />
+    <Resource Include="GreetingImages\Greeting.png" />
+    <Resource Include="Images\1Lumbers.png" />
+    <Resource Include="Images\2FinishingMaterials.png" />
+    <Resource Include="Images\3InsulationMaterials.png" />
+    <Resource Include="Images\4Fences.png" />
+    <Resource Include="Images\5RoofingMaterials.png" />
+    <Resource Include="Images\6RoadSurfaces.png" />
+    <Resource Include="Images\7RolledMetal.png" />
+    <Resource Include="Images\8Wallpaper.png" />
     <Content Include="BaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BaseModel.edmx</DependentUpon>
@@ -228,15 +338,7 @@
       <DependentUpon>BaseModel.edmx</DependentUpon>
       <LastGenOutput>BaseModel.cs</LastGenOutput>
     </Content>
-    <Resource Include="Image9.png" />
-    <Resource Include="Image8.png" />
-    <Resource Include="Image7.png" />
-    <Resource Include="Image6.png" />
-    <Resource Include="Image5.png" />
-    <Resource Include="Image4.png" />
-    <Resource Include="Image3.png" />
-    <Resource Include="Image2.png" />
-    <Resource Include="Image1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

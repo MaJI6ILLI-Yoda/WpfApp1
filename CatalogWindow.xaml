@@ -1,0 +1,51 @@
+﻿<Window x:Class="WpfApp1.CatalogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="CatalogWindow" Height="1080" Width="1920" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="#1e2126" WindowState="Maximized" WindowStyle="None">
+    <Grid Cursor="Hand">
+        <Button Background="Transparent" Click="CatalogIconNetoSky_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="69,36,1344,894"/>
+        <Image Margin="69,36,1344,894" Source="/Icons/IconNetoSky.png" Stretch="Fill" Cursor="Hand"/>
+
+        <Button Background="Transparent" Click="CatalogIconShoppingCart_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="1445,36,325,894"/>
+        <Image Margin="1445,36,325,894" Height="150" Width="150" Source="/Icons/IconShoppingCart.png" Stretch="Fill" Cursor="Hand"/>
+
+        <Button Background="Transparent" Click="CatalogIconProfile_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="1702,36,68,894"/>
+        <Image Margin="1702,36,68,894" Height="150" Width="150" Source="/Icons/IconProfile.png" Stretch="Fill" Cursor="Hand"/>
+
+        <TextBlock Text="Пилометариалы" Foreground="#f7f7f7" FontSize="40" Margin="69,243,1455,776" TextWrapping="Wrap" Cursor="Arrow"/>
+        <Button Background="Transparent" Click="Lumbers_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="69,339,1451,468"/>
+        <Image Margin="69,339,1451,468" Source="/Images/1Lumbers.png" Stretch="Fill" Cursor="Hand"/>
+
+        <TextBlock Text="Отделочные материалы" Foreground="#f7f7f7" FontSize="40" Margin="543,213,1091,746" TextWrapping="Wrap" Cursor="Arrow"/>
+        <Button Background="Transparent" Click="FinishingMaterials_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="543,339,977,468"/>
+        <Image Margin="543,339,977,468" Source="/Images/2FinishingMaterials.png" Stretch="Fill" Cursor="Hand"/>
+
+        <TextBlock Text="Изоляционные материалы" Foreground="#f7f7f7" FontSize="40" Margin="997,213,637,746" TextWrapping="Wrap" Cursor="Arrow"/>
+        <Button Background="Transparent" Click="InsulationMaterials_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="997,339,523,468"/>
+        <Image Margin="997,339,523,468" Source="/Images/3InsulationMaterials.png" Stretch="Fill" Cursor="Hand"/>
+
+        <TextBlock Text="Заборы и ограждения" Foreground="#f7f7f7" FontSize="40" Margin="1452,213,182,746" TextWrapping="Wrap" Cursor="Arrow"/>
+        <Button Background="Transparent" Click="Fences_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="1452,339,68,468"/>
+        <Image Margin="1452,339,68,468" Source="/Images/4Fences.png" Stretch="Fill" Cursor="Hand"/>
+
+        <TextBlock Text="Кровельные материалы" Foreground="#f7f7f7" FontSize="40" Margin="69,640,1565,319" TextWrapping="Wrap" Cursor="Arrow"/>
+        <Button Background="Transparent" Click="RoofingMaterials_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="69,766,1451,41"/>
+        <Image Margin="69,766,1451,41" Source="/Images/5RoofingMaterials.png" Stretch="Fill" Cursor="Hand"/>
+
+        <TextBlock Text="Дорожные покрытия" Foreground="#f7f7f7" FontSize="40" Margin="543,640,1091,319" TextWrapping="Wrap" Cursor="Arrow"/>
+        <Button Background="Transparent" Click="RoadSurfaces_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="543,766,977,41"/>
+        <Image Margin="543,766,977,41" Source="/Images/6RoadSurfaces.png" Stretch="Fill" Cursor="Hand"/>
+
+        <TextBlock Text="Металлопрокат" Foreground="#f7f7f7" FontSize="40" Margin="997,670,637,350" TextWrapping="Wrap" Cursor="Arrow"/>
+        <Button Background="Transparent" Click="RolledMetal_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="997,766,523,41"/>
+        <Image Margin="997,766,523,41" Source="/Images/7RolledMetal.png" Stretch="Fill" Cursor="Hand"/>
+
+        <TextBlock Text="Обои" Foreground="#f7f7f7" FontSize="40" Margin="1452,670,182,350" TextWrapping="Wrap" Cursor="Arrow"/>
+        <Button Background="Transparent" Click="Wallpaper_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="1452,766,68,41"/>
+        <Image Margin="1452,766,68,41" Source="/Images/8Wallpaper.png" Stretch="Fill" Cursor="Hand"/>
+    </Grid>
+</Window>

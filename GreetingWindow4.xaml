@@ -9,6 +9,6 @@
     <Grid>
         <Button Background="Transparent" Click="GreetingWindow4_ClickNext" IsDefault="True"/>
         <Button Background="Transparent" Click="GreetingWindow4_ClickClose" IsCancel="True"/>
-        <Image Source="/Image4.png" Stretch="Fill"/>
+        <Image Source="/GreetingImages/GreetingOurProjects.png" Stretch="Fill"/>
     </Grid>
 </Window>

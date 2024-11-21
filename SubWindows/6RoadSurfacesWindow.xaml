@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp1.SubWindows._6RoadSurfacesWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.SubWindows"
+        mc:Ignorable="d"
+        Title="_6RoadSurfacesWindow" Height="400" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="#1e2126" WindowStyle="None">
+    <Grid>
+        <Button Background="Transparent" Click="RoadSurfaces_ClickClose" IsCancel="True"/>
+
+        <TextBlock Text="Резиновые покрытия" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Cursor="Arrow" Margin="97,48,699,245"/>
+        <Image Margin="97,167,699,49" Source="\Images\6RoadSurfaces\1Rubber.png" Stretch="Fill"/>
+
+        <TextBlock Text="Тротуарная плитка" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Cursor="Arrow" Margin="398,48,390,245"/>
+        <Image Margin="398,167,398,49" Source="\Images\6RoadSurfaces\2PavingSlabs.png" Stretch="Fill"/>
+
+        <TextBlock Text="Бордюры" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Cursor="Arrow" Margin="699,74,123,272"/>
+        <Image Margin="699,167,97,49" Source="\Images\6RoadSurfaces\3Curbs.png" Stretch="Fill"/>
+    </Grid>
+</Window>
