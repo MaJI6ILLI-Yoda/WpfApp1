@@ -27,6 +27,14 @@ namespace WpfApp1
         public AddEditWindow()
         {
             InitializeComponent();
+            this.Loaded += (s, e) =>
+            {
+                var screenWidth = SystemParameters.PrimaryScreenWidth;
+                var screenHeight = SystemParameters.PrimaryScreenHeight;
+
+                this.Left = (screenWidth - this.Width) / 2;
+                this.Top = (screenHeight - this.Height) / 2;
+            };
             DataContext = request;
             ComboStatus.ItemsSource = LogiClickeEntities.GetContext().RequestStatus.ToList();
         }
@@ -35,29 +43,29 @@ namespace WpfApp1
             StringBuilder error = new StringBuilder();
 
             if (request.application_number == null)
-                error.AppendLine("Введите номер заявки!");
+                error.AppendLine("Введите номер товара!");
 
             else if (!int.TryParse(request.application_number.ToString(), out int applicationNumber) || applicationNumber < 0)
-                error.AppendLine("Номер заявки должен иметь положительное или отрицательное значение!");
+                error.AppendLine("Номер товара должен иметь положительное или отрицательное значение!");
 
             else if (LogiClickeEntities.GetContext().Requests.Any(row => row.application_number == request.application_number))
-                error.AppendLine("Номер заявки уже существует!");
+                error.AppendLine("Номер товара уже существует!");
 
             if (request.request_date == null || request.request_date == DateTime.MinValue)
                 error.AppendLine("Укажите дату!");
 
             if (string.IsNullOrWhiteSpace(request.problem_description))
-                error.AppendLine("Укажите описание проблемы!");
+                error.AppendLine("Укажите характиристики!");
 
             if (ComboStatus.SelectedItem != null && ComboStatus.SelectedItem is RequestStatus selectedStatus)
                 request.status_id = selectedStatus.status_id;
-            else error.AppendLine("Выберите статус заявки!");
+            else error.AppendLine("Выберите статус товара!");
 
             if (string.IsNullOrWhiteSpace(SubjectTextBox.Text))
-                error.AppendLine("Укажите предмет!");
+                error.AppendLine("Укажите товар!");
 
             if (string.IsNullOrWhiteSpace(ChildTextBox.Text))
-                error.AppendLine("Укажите имя ребенка!");
+                error.AppendLine("Укажите имя клиента!");
 
             if (string.IsNullOrWhiteSpace(FaultTypeTextBox.Text))
                 error.AppendLine("Укажите тип неисправности!");

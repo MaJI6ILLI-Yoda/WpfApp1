@@ -8,23 +8,29 @@
         Title="RefreshWindow" Height="450" Width="300" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="#1e2126" WindowState="Normal" WindowStyle="None">
     <StackPanel>
         <TextBlock FontSize="16" HorizontalAlignment="Center"/>
-        <TextBlock Text="Описание проблемы" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
+        <TextBlock Text="Характеристики" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
         <TextBox x:Name="DescriptionTextBox" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="18" Height="28" Background="#383a47" Foreground="#f7f7f7" BorderThickness="0,0,0,0"/>
 
         <TextBlock FontSize="18"/>
-        <TextBlock Text="Статус заявки" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
-        <ComboBox x:Name="StatusComboBox" DisplayMemberPath="status_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
+        <TextBlock Text="Статус товара" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
+        <ComboBox x:Name="StatusComboBox" DisplayMemberPath="status_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0">
+            <ComboBox.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Red"/>
+                </Style>
+            </ComboBox.Resources>
+        </ComboBox>
 
         <TextBlock FontSize="18"/>
-        <TextBlock Text="Преподаватель" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
+        <TextBlock Text="Сотрудник" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
         <ComboBox x:Name="TeacherComboBox" DisplayMemberPath="teacher_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
 
         <TextBlock FontSize="18"/>
-        <TextBlock Text="Тип затруднения" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
+        <TextBlock Text="Тип товара" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
         <ComboBox x:Name="FaultTypeComboBox" DisplayMemberPath="fault_type_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
 
         <TextBlock FontSize="18"/>
-        <TextBlock Text="Ребенок" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
+        <TextBlock Text="Клиент" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
         <ComboBox x:Name="ChildComboBox" DisplayMemberPath="child_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
 
         <TextBlock FontSize="24"/>

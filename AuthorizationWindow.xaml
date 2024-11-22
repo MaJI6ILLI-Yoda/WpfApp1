@@ -10,12 +10,24 @@
         <Label Content="Авторизация" FontSize="26" Foreground="#f7f7f7" Margin="111,85,124,370"/>
 
         <Label Content="Email" FontSize="20" Foreground="#f7f7f7" Margin="56,153,287,310"/>
-        <TextBox x:Name="textBoxEmail" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="50,189,50,276" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxEmail_MouseDoubleClick" Text="Example@yandex.ru"/>
+        <TextBox x:Name="textBoxEmail" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="50,189,50,276" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxEmail_MouseDoubleClick" Text="Example@yandex.ru" Cursor="Hand">
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+        </TextBox>
 
         <Label Content="Пароль" FontSize="20" Foreground="#f7f7f7" Margin="56,227,264,236"/>
-        <TextBox x:Name="textBoxPassword" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="50,264,50,201" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxPassword_MouseDoubleClick" Text="Введите свой пароль"/>
+        <TextBox x:Name="textBoxPassword" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="50,264,50,201" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxPassword_MouseDoubleClick" Text="Введите свой пароль" Cursor="Hand">
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+        </TextBox>
 
-        <Button Content="Войти" Margin="118,339,118,126" FontWeight="Bold" Background="#2bbb77" Foreground="#f7f7f7"  Click="ButtonLogin" FontSize="20" BorderThickness="0,0,0,0" Cursor="Hand" IsDefault="True"/>
+        <Button Content="Войти" Margin="118,339,118,126" FontWeight="Bold" Background="#2bbb77" Foreground="#f7f7f7"  Click="ButtonLogin" FontSize="20" BorderThickness="0,0,0,0" Cursor="Hand" IsDefault="True">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
 
         <Button Content="X" FontWeight="Bold" Background="#FFF5192E" Foreground="#f7f7f7" Click="ButtonAuthorizationClickOut" FontSize="12" BorderThickness="0,0,0,0" Cursor="Hand" IsCancel="True" Margin="370,0,0,470"/>
 

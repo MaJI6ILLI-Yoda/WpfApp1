@@ -38,8 +38,8 @@ namespace WpfApp1
 
         private void ButtonAuthorizationClickOut(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            CatalogWindow catalogWindow = new CatalogWindow();
+            catalogWindow.Show();
             this.Close();
         }
 

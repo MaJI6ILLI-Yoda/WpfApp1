@@ -1,0 +1,70 @@
+﻿<Window x:Class="WpfApp1.SubWindows._1SubLumbersWindows._1BoardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1.SubWindows._1SubLumbersWindows"
+        mc:Ignorable="d"
+        Title="_1BoardWindow" Height="1080" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="#1e2126" WindowStyle="None" BorderThickness="2" BorderBrush="DarkGray">
+    <Grid>
+        <Button Background="Transparent" Click="Board_ClickClose" Panel.ZIndex="-1" IsCancel="True"/>
+        <Label Background="#1e2126"/>
+
+        <TextBlock Text="Планкен прямой ООО «Ларикс», сорт B" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Margin="366,74,216,886"/>
+        <TextBlock Text="308₽" Foreground="#2ebb7d"  FontSize="40" Margin="836,74,70,944" Cursor="Hand"/>
+        <TextBlock Text="Длина: " Foreground="#f7f7f7" FontSize="30" TextWrapping="Wrap" Margin="366,195,423,833"/>
+        <TextBlock Text="2000мм" Foreground="#2ebb7d" FontSize="30" TextWrapping="Wrap" Margin="540,195,342,833"/>
+        <TextBlock Text="Ширина: " Foreground="#f7f7f7" FontSize="30" TextWrapping="Wrap" Margin="366,240,423,788"/>
+        <TextBlock Text="95мм" Foreground="#2ebb7d" FontSize="30" TextWrapping="Wrap" Margin="573,240,343,788"/>
+        <TextBlock Text="Толщина: " Foreground="#f7f7f7" FontSize="30" TextWrapping="Wrap" Margin="366,282,423,746"/>
+        <TextBlock Text="20мм" Foreground="#2ebb7d" FontSize="30" TextWrapping="Wrap" Margin="573,282,343,746"/>
+        <Image Margin="60,74,669,746" Source="\Images\1Lumbers\1Board\1StraightPlanken.png" Stretch="Fill">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Button Content="В корзину" Click="BtnAdd_Click" Margin="682,248,74,762" Background="#2bbb77" Foreground="#f7f7f7" BorderThickness="0,0,0,0" FontSize="30" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+        <TextBlock Text="Шпунт ООО «Ларикс», сорт AB" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Margin="366,410,216,550"/>
+        <TextBlock Text="682₽" Foreground="#2ebb7d"  FontSize="40" Margin="836,410,70,612" Cursor="Hand"/>
+        <TextBlock Text="Длина: " Foreground="#f7f7f7" FontSize="30" TextWrapping="Wrap" Margin="366,531,423,497"/>
+        <TextBlock Text="2000мм" Foreground="#2ebb7d" FontSize="30" TextWrapping="Wrap" Margin="540,531,342,497"/>
+        <TextBlock Text="Ширина: " Foreground="#f7f7f7" FontSize="30" TextWrapping="Wrap" Margin="366,576,423,452"/>
+        <TextBlock Text="95мм" Foreground="#2ebb7d" FontSize="30" TextWrapping="Wrap" Margin="573,576,343,452"/>
+        <TextBlock Text="Толщина: " Foreground="#f7f7f7" FontSize="30" TextWrapping="Wrap" Margin="366,618,423,410"/>
+        <TextBlock Text="28мм" Foreground="#2ebb7d" FontSize="30" TextWrapping="Wrap" Margin="573,618,343,410"/>
+        <Image Margin="60,410,669,410" Source="\Images\1Lumbers\1Board\2SheetPile.png" Stretch="Fill">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Button Content="В корзину" Click="BtnAdd_Click" Margin="682,583,74,427" Background="#2bbb77" Foreground="#f7f7f7" BorderThickness="0,0,0,0" FontSize="30" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+
+        <TextBlock Text="Планкен скошенный ООО «Ларикс», сорт B" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Margin="366,746,216,214"/>
+        <TextBlock Text="463₽" Foreground="#2ebb7d"  FontSize="40" Margin="836,746,70,276" Cursor="Hand"/>
+        <TextBlock Text="Длина: " Foreground="#f7f7f7" FontSize="30" TextWrapping="Wrap" Margin="366,867,423,161"/>
+        <TextBlock Text="3000мм" Foreground="#2ebb7d" FontSize="30" TextWrapping="Wrap" Margin="540,867,342,161"/>
+        <TextBlock Text="Ширина: " Foreground="#f7f7f7" FontSize="30" TextWrapping="Wrap" Margin="366,912,423,116"/>
+        <TextBlock Text="95мм" Foreground="#2ebb7d" FontSize="30" TextWrapping="Wrap" Margin="573,912,343,116"/>
+        <TextBlock Text="Толщина: " Foreground="#f7f7f7" FontSize="30" TextWrapping="Wrap" Margin="366,954,423,74"/>
+        <TextBlock Text="20мм" Foreground="#2ebb7d" FontSize="30" TextWrapping="Wrap" Margin="573,954,343,74"/>
+        <Image Margin="60,746,661,74" Source="\Images\1Lumbers\1Board\3BeveledPlank.png" Stretch="Fill">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
+        <Button Content="В корзину" Click="BtnAdd_Click" Margin="682,920,74,90" Background="#2bbb77" Foreground="#f7f7f7" BorderThickness="0,0,0,0" FontSize="30" FontWeight="Bold">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+    </Grid>
+</Window>

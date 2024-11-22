@@ -5,21 +5,87 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1.SubWindows"
         mc:Ignorable="d"
-        Title="SubLumbersWindow" Height="400" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="#1e2126" WindowStyle="None">
+        Title="SubLumbersWindow" Height="400" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="Manual" Background="#1e2126" WindowStyle="None" BorderThickness="2" BorderBrush="DarkGray">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="ForestGreen"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="DarkGreen"/>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Pressed.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <Button Background="Transparent" Click="Lumbers_ClickClose" IsCancel="True"/>
+        <Button Background="Transparent" Click="Lumbers_ClickClose" Panel.ZIndex="-1" IsCancel="True"/>
+        <Label Background="#1e2126"/>
 
         <TextBlock Text="Доска" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Cursor="Arrow" Margin="37,74,847,270"/>
-        <Image Margin="37,142,759,74" Source="/Images/1Lumbers/1Board.png" Stretch="Fill"/>
+        <Button Style="{DynamicResource ButtonStyle}" Background="Transparent" Click="Board_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="37,142,759,74" Cursor="Hand"/>
+        <Image Margin="37,142,759,74" Source="/Images/1Lumbers/1Board.png" Stretch="Fill">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
 
         <TextBlock Text="Брусок" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Cursor="Arrow" Margin="278,74,585,270"/>
-        <Image Margin="278,142,518,74" Source="/Images/1Lumbers/2Balk.png" Stretch="Fill"/>
+        <Button Style="{DynamicResource ButtonStyle}" Background="Transparent" Click="Balk_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="278,142,518,74" Cursor="Hand"/>
+        <Image Margin="278,142,518,74" Source="/Images/1Lumbers/2Balk.png" Stretch="Fill">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
 
         <TextBlock Text="Вагонка" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Cursor="Arrow" Margin="519,74,331,270"/>
-        <Image Margin="519,142,277,74" Source="/Images/1Lumbers/3Lining.png" Stretch="Fill"/>
+        <Button Style="{DynamicResource ButtonStyle}" Background="Transparent" Click="Lining_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="519,142,277,74" Cursor="Hand"/>
+        <Image Margin="519,142,277,74" Source="/Images/1Lumbers/3Lining.png" Stretch="Fill">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
 
         <TextBlock Text="Блок-хаус" Foreground="#f7f7f7" FontSize="40" TextWrapping="Wrap" Cursor="Arrow" Margin="760,74,53,270"/>
-        <Image Margin="760,142,36,74" Source="/Images/1Lumbers/4BlockHouse.png" Stretch="Fill"/>
+        <Button Style="{DynamicResource ButtonStyle}" Background="Transparent" Click="BlockHouse_Click" BorderBrush="Transparent" Panel.ZIndex="1" Margin="760,142,36,74" Cursor="Hand"/>
+        <Image Margin="760,142,36,74" Source="/Images/1Lumbers/4BlockHouse.png" Stretch="Fill">
+            <Image.Effect>
+                <DropShadowEffect/>
+            </Image.Effect>
+        </Image>
     </Grid>
 </Window>
 

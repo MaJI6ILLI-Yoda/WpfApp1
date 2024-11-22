@@ -16,12 +16,12 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding application_number}" Width="auto"/>
                 <DataGridTextColumn Header="Дата" Binding="{Binding request_date}" Width="auto"/>
-                <DataGridTextColumn Header="Предмет" Binding="{Binding Subject.subject_name}" Width="auto"/>
-                <DataGridTextColumn Header="Тип затруднения" Binding="{Binding FaultTypes.fault_type_name}" Width="auto"/>
-                <DataGridTextColumn Header="Описание проблемы" Binding="{Binding problem_description}" Width="auto"/>
-                <DataGridTextColumn Header="Ребенок" Binding="{Binding Childs.child_name}" Width="auto"/>
+                <DataGridTextColumn Header="Товар" Binding="{Binding Subject.subject_name}" Width="auto"/>
+                <DataGridTextColumn Header="Тип товара" Binding="{Binding FaultTypes.fault_type_name}" Width="auto"/>
+                <DataGridTextColumn Header="Характеристики" Binding="{Binding problem_description}" Width="auto"/>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding Childs.child_name}" Width="auto"/>
                 <DataGridTextColumn Header="Статус" Binding="{Binding RequestStatus.status_name}" Width="auto"/>
-                <DataGridTextColumn Header="Преподаватели" Binding="{Binding Teachers.teacher_name}" Width="auto"/>
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding Teachers.teacher_name}" Width="auto"/>
                 <DataGridTemplateColumn Width="auto" x:Name="BtnEdit_Invisible">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -39,7 +39,7 @@
         <ComboBox SelectedItem="{Binding status_name}" x:Name="ComboStatus" DisplayMemberPath= "status_name" Margin="312,16,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="118" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
         <TextBlock Text="Фильтр" HorizontalAlignment="Left" Margin="256,14,0,0" VerticalAlignment="Top" Width="55" RenderTransformOrigin="-0.349,0.472" Foreground="#f7f7f7" FontSize="16"/>
         <TextBlock Text="Поиск" HorizontalAlignment="Left" Margin="4,14,0,0" VerticalAlignment="Top" Width="50"  Foreground="#f7f7f7" FontSize="16"/>
-        <TextBlock Text="Кол-во записавшихся" HorizontalAlignment="Left" Margin="562,16,0,0" VerticalAlignment="Top" Width="155" Foreground="#f7f7f7" FontSize="16"/>
+        <TextBlock Text="Выполнено заказов" HorizontalAlignment="Left" Margin="562,16,0,0" VerticalAlignment="Top" Width="155" Foreground="#f7f7f7" FontSize="16"/>
         <TextBox x:Name="Box" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="22" VerticalAlignment="Top" Margin="724,16,3,0" IsReadOnly="True" Background="#383a47" Foreground="#f7f7f7" BorderThickness="0,0,0,0"/>
         <TextBox x:Name="SearchBox" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Width="200" Height="22" TextChanged="SearchBox_TextChanged" Margin="54,16,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Background="#383a47" Foreground="#f7f7f7" BorderThickness="0,0,0,0"/>
     </Grid>

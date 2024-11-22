@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfApp1.SubWindows
+namespace WpfApp1.SubWindows._1SubLumbersWindows
 {
     /// <summary>
-    /// Логика взаимодействия для _4FencesWindow.xaml
+    /// Логика взаимодействия для _1BoardWindow.xaml
     /// </summary>
-    public partial class _4FencesWindow : Window
+    public partial class _1BoardWindow : Window
     {
-        public _4FencesWindow()
+        public _1BoardWindow()
         {
             InitializeComponent();
             this.Loaded += (s, e) =>
@@ -32,10 +32,15 @@ namespace WpfApp1.SubWindows
             };
         }
 
-        private void Fences_ClickClose(object sender, RoutedEventArgs e)
+        private void Board_ClickClose(object sender, RoutedEventArgs e)
         {
-            CatalogWindow catalogwindow = new CatalogWindow();
-            catalogwindow.Show();
+            _1LumbersWindow lumbersWindow = new _1LumbersWindow();
+            lumbersWindow.Show();
+            this.Close();
+        }
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Данные заявки обновлены");
         }
     }
 }

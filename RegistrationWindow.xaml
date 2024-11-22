@@ -10,18 +10,38 @@
         <Label Content="Регистрация" FontSize="26" Foreground="#f7f7f7" Margin="121,24,121,431"/>
 
         <Label Content="Имя пользователя" FontSize="20" Foreground="#f7f7f7" Margin="56,80,165,383"/>
-        <TextBox x:Name="textBoxUserName" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxUserNameRegistration_MouseDoubleClick" Margin="50,114,50,350" Text="Ваше полное имя"/>
+        <TextBox x:Name="textBoxUserName" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxUserNameRegistration_MouseDoubleClick" Margin="50,114,50,350" Text="Ваше полное имя" Cursor="Hand">
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+        </TextBox>
 
         <Label Content="Номер телефона" FontSize="20" Foreground="#f7f7f7" Margin="50,150,171,313"/>
-        <TextBox x:Name="textBoxPhone" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="50,187,50,278" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxPhoneRegistration_MouseDoubleClick" Text="Ваш телефоный номер "/>
+        <TextBox x:Name="textBoxPhone" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="50,187,50,278" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxPhoneRegistration_MouseDoubleClick" Text="Ваш телефоный номер " Cursor="Hand">
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+        </TextBox>
 
         <Label Content="Email" FontSize="20" Foreground="#f7f7f7" Margin="56,222,287,246" RenderTransformOrigin="0.526,0.344"/>
-        <TextBox x:Name="textBoxEmailRegistration" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxEmailRegistration_MouseDoubleClick" Margin="50,259,50,205" Text="Example@yandex.ru"/>
+        <TextBox x:Name="textBoxEmailRegistration" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxEmailRegistration_MouseDoubleClick" Margin="50,259,50,205" Text="Example@yandex.ru" Cursor="Hand">
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+        </TextBox>
 
         <Label Content="Пароль" FontSize="20" Foreground="#f7f7f7" Margin="56,295,264,168"/>
-        <TextBox x:Name="textBoxPasswordRegistration" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="50,332,50,133" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxPasswordRegistration_MouseDoubleClick" Text="Придумайте сложный пароль"/>
+        <TextBox x:Name="textBoxPasswordRegistration" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="50,332,50,133" FontSize="18" Background="#383a47" Foreground="#FFA7A7A7" BorderThickness="0,0,0,0" Padding="10,0,0,0" MouseDoubleClick="textBoxPasswordRegistration_MouseDoubleClick" Text="Придумайте сложный пароль" Cursor="Hand">
+            <TextBox.Effect>
+                <DropShadowEffect/>
+            </TextBox.Effect>
+        </TextBox>
 
-        <Button Content="Зарегистрироваться" Margin="70,401,70,64" FontWeight="Bold" Background="#2bbb77" Foreground="#f7f7f7"  Click="ButtonRegistration_Click" FontSize="20" BorderThickness="0,0,0,0" Cursor="Hand" IsDefault="True"/>
+        <Button Content="Зарегистрироваться" Margin="70,401,70,64" FontWeight="Bold" Background="#2bbb77" Foreground="#f7f7f7"  Click="ButtonRegistration_Click" FontSize="20" BorderThickness="0,0,0,0" Cursor="Hand" IsDefault="True">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
 
         <Button Content="X" FontWeight="Bold" Background="#FFF5192E" Foreground="#f7f7f7" Click="ButtonRegistrationClickOut" FontSize="12" BorderThickness="0,0,0,0" Cursor="Hand" IsCancel="True" Margin="370,0,0,470"/>
 

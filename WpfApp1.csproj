@@ -127,6 +127,18 @@
     <Compile Include="SubWindows\1LumbersWindow.xaml.cs">
       <DependentUpon>1LumbersWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SubWindows\1SubLumbersWindows\1BoardWindow.xaml.cs">
+      <DependentUpon>1BoardWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubWindows\1SubLumbersWindows\2BalkWindow.xaml.cs">
+      <DependentUpon>2BalkWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubWindows\1SubLumbersWindows\3LiningWindow.xaml.cs">
+      <DependentUpon>3LiningWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SubWindows\1SubLumbersWindows\4BlockHouseWindow.xaml.cs">
+      <DependentUpon>4BlockHouseWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SubWindows\2FinishingMaterialsWindow.xaml.cs">
       <DependentUpon>2FinishingMaterialsWindow.xaml</DependentUpon>
     </Compile>
@@ -214,6 +226,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="SubWindows\1SubLumbersWindows\1BoardWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindows\1SubLumbersWindows\2BalkWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindows\1SubLumbersWindows\3LiningWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SubWindows\1SubLumbersWindows\4BlockHouseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SubWindows\2FinishingMaterialsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -281,6 +309,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\5RoofingMaterials\4SealingTapes.png" />
+    <Resource Include="Images\1Lumbers\4BlockHouse\1KronaBlockHouse.png" />
+    <Resource Include="Images\1Lumbers\3Lining\1SimaLandLining.png" />
+    <Resource Include="Images\1Lumbers\3Lining\2CalmLining.png" />
+    <Resource Include="Images\1Lumbers\3Lining\3DobroparovLining.png" />
+    <Resource Include="Images\1Lumbers\2Balk\1OakTimber.png" />
+    <Resource Include="Images\1Lumbers\2Balk\2GluedTimber.png" />
+    <Resource Include="Images\1Lumbers\2Balk\3LarchTimber.png" />
+    <Resource Include="Images\1Lumbers\1Board\1StraightPlanken.png" />
+    <Resource Include="Images\1Lumbers\1Board\2SheetPile.png" />
+    <Resource Include="Images\1Lumbers\1Board\3BeveledPlank.png" />
     <Resource Include="Images\8Wallpaper\1DecorativeWallpaper.png" />
     <Resource Include="Images\8Wallpaper\2PhotoWallpapers.png" />
     <Resource Include="Images\8Wallpaper\3LiquidWallpaper.png" />
@@ -295,7 +334,6 @@
     <Resource Include="Images\5RoofingMaterials\1DrainageSystems.png" />
     <Resource Include="Images\5RoofingMaterials\2Soffits.png" />
     <Resource Include="Images\5RoofingMaterials\3ProfileSoffits.png" />
-    <Resource Include="Images\5RoofingMaterials\4RoofInstallation.png" />
     <Resource Include="Images\4Fences\1PlasticPicketFence.png" />
     <Resource Include="Images\4Fences\2MetalPicketFence.png" />
     <Resource Include="Images\4Fences\3Sectional.png" />
@@ -328,6 +366,8 @@
     <Resource Include="Images\6RoadSurfaces.png" />
     <Resource Include="Images\7RolledMetal.png" />
     <Resource Include="Images\8Wallpaper.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="BaseModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BaseModel.edmx</DependentUpon>
@@ -338,7 +378,7 @@
       <DependentUpon>BaseModel.edmx</DependentUpon>
       <LastGenOutput>BaseModel.cs</LastGenOutput>
     </Content>
+    <Content Include="SQLQuery3.sql" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

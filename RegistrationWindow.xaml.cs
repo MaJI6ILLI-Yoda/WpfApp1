@@ -26,6 +26,14 @@ namespace WpfApp1
         public RegistrationWindow()
         {
             InitializeComponent();
+            this.Loaded += (s, e) =>
+            {
+                var screenWidth = SystemParameters.PrimaryScreenWidth;
+                var screenHeight = SystemParameters.PrimaryScreenHeight;
+
+                this.Left = (screenWidth - this.Width) / 2;
+                this.Top = (screenHeight - this.Height) / 2;
+            };
             DataContext = account;
         }
 

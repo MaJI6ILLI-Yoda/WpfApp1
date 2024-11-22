@@ -22,6 +22,14 @@ namespace WpfApp1.SubWindows
         public _3InsulationMaterialsWindow()
         {
             InitializeComponent();
+            this.Loaded += (s, e) =>
+            {
+                var screenWidth = SystemParameters.PrimaryScreenWidth;
+                var screenHeight = SystemParameters.PrimaryScreenHeight;
+
+                this.Left = (screenWidth - this.Width) / 2;
+                this.Top = (screenHeight - this.Height) / 2;
+            };
         }
 
         private void InsulationMaterials_ClickClose(object sender, RoutedEventArgs e)

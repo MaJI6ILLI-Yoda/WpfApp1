@@ -32,6 +32,11 @@ namespace WpfApp1
             this.Close();
         }
 
+        private void CatalogIconNetoSky_MouseEnter(object sender, MouseEventArgs e)
+        {
+            e.Handled = true;
+        }
+
         private void CatalogIconShoppingCart_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainwindow = new MainWindow();
@@ -48,56 +53,48 @@ namespace WpfApp1
         {
             _1LumbersWindow lumberswindow = new _1LumbersWindow();
             lumberswindow.Show();
-            this.Close();
         }
 
         private void FinishingMaterials_Click(object sender, RoutedEventArgs e)
         {
             _2FinishingMaterialsWindow finishingmaterialswindow = new _2FinishingMaterialsWindow();
             finishingmaterialswindow.Show();
-            this.Close();
         }
 
         private void InsulationMaterials_Click(object sender, RoutedEventArgs e)
         {
             _3InsulationMaterialsWindow insulationmaterialswindow = new _3InsulationMaterialsWindow();
             insulationmaterialswindow.Show();
-            this.Close();
         }
 
         private void Fences_Click(object sender, RoutedEventArgs e)
         {
             _4FencesWindow fenceswindow = new _4FencesWindow();
             fenceswindow.Show();
-            this.Close();
         }
 
         private void RoofingMaterials_Click(object sender, RoutedEventArgs e)
         {
             _5RoofingMaterialsWindow roofingmaterialswindow = new _5RoofingMaterialsWindow();
             roofingmaterialswindow.Show();
-            this.Close();
         }
 
         private void RoadSurfaces_Click(object sender, RoutedEventArgs e)
         {
             _6RoadSurfacesWindow roadSurfaceswindow = new _6RoadSurfacesWindow();
             roadSurfaceswindow.Show();
-            this.Close();
         }
 
         private void RolledMetal_Click(object sender, RoutedEventArgs e)
         {
             _7RolledMetalWindow rolledmetalwindow = new _7RolledMetalWindow();
             rolledmetalwindow.Show();
-            this.Close();
         }
 
         private void Wallpaper_Click(object sender, RoutedEventArgs e)
         {
             _8WallpaperWindow wallpaperwindow = new _8WallpaperWindow();
             wallpaperwindow.Show();
-            this.Close();
         }
     }
 }

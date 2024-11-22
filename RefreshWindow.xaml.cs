@@ -20,6 +20,14 @@ namespace WpfApp1
         public RefreshWindow(Requests request)
         {
             InitializeComponent();
+            this.Loaded += (s, e) =>
+            {
+                var screenWidth = SystemParameters.PrimaryScreenWidth;
+                var screenHeight = SystemParameters.PrimaryScreenHeight;
+
+                this.Left = (screenWidth - this.Width) / 2;
+                this.Top = (screenHeight - this.Height) / 2;
+            };
             _currentRequest = request;
 
             StatusComboBox.ItemsSource = LogiClickeEntities.GetContext().RequestStatus.ToList();
@@ -45,7 +53,7 @@ namespace WpfApp1
             _currentRequest.child_id = ((Childs)ChildComboBox.SelectedItem).child_id;
 
             context.SaveChanges();
-            MessageBox.Show("Данные заявки обновлены");
+            MessageBox.Show("Данные товара обновлены");
             this.Close();
         }
 
