@@ -18,7 +18,7 @@ namespace WpfApp1
         public static string authorizationRole;
         public static string GetRole(string emailadress, string password)
         {
-            var account = LogiClickeEntities.GetContext().Account.FirstOrDefault(a => a.EmailAdress == emailadress && a.Password == password);
+            var account = NetoSkyDataBaseEntities.GetContext().Account.FirstOrDefault(a => a.EmailAdress == emailadress && a.Password == password);
             if (account != null) return authorizationRole = account.Role.name_role;
             return null;
         }

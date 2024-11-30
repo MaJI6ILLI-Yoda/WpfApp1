@@ -30,27 +30,27 @@ namespace WpfApp1
             };
             _currentRequest = request;
 
-            StatusComboBox.ItemsSource = LogiClickeEntities.GetContext().RequestStatus.ToList();
-            TeacherComboBox.ItemsSource = LogiClickeEntities.GetContext().Teachers.ToList();
-            FaultTypeComboBox.ItemsSource = LogiClickeEntities.GetContext().FaultTypes.ToList();
-            ChildComboBox.ItemsSource = LogiClickeEntities.GetContext().Childs.ToList();
-            DescriptionTextBox.Text = request.problem_description;
+            StatusComboBox.ItemsSource = NetoSkyDataBaseEntities.GetContext().RequestStatus.ToList();
+            WorkerComboBox.ItemsSource = NetoSkyDataBaseEntities.GetContext().Workers.ToList();
+            ProductTypeComboBox.ItemsSource = NetoSkyDataBaseEntities.GetContext().ProductTypes.ToList();
+            ClientComboBox.ItemsSource = NetoSkyDataBaseEntities.GetContext().Clients.ToList();
+            DescriptionTextBox.Text = request.product_description;
             StatusComboBox.SelectedItem = request.RequestStatus;
-            TeacherComboBox.SelectedItem = request.Teachers;
-            FaultTypeComboBox.SelectedItem = request.FaultTypes;
-            ChildComboBox.SelectedItem = request.Childs;
+            WorkerComboBox.SelectedItem = request.Workers;
+            ProductTypeComboBox.SelectedItem = request.ProductTypes;
+            ClientComboBox.SelectedItem = request.Clients;
         }
 
         private void UpdateButtonClick(object sender, RoutedEventArgs e)
         {
            
-            var context = LogiClickeEntities.GetContext();
+            var context = NetoSkyDataBaseEntities.GetContext();
 
-            _currentRequest.problem_description = DescriptionTextBox.Text;
+            _currentRequest.product_description = DescriptionTextBox.Text;
             _currentRequest.status_id = ((RequestStatus)StatusComboBox.SelectedItem).status_id;
-            _currentRequest.teacher_id = ((Teachers)TeacherComboBox.SelectedItem).teacher_id;
-            _currentRequest.fault_type_id = ((FaultTypes)FaultTypeComboBox.SelectedItem).fault_type_id;
-            _currentRequest.child_id = ((Childs)ChildComboBox.SelectedItem).child_id;
+            _currentRequest.worker_id = ((Workers)WorkerComboBox.SelectedItem).worker_id;
+            _currentRequest.product_type_id = ((ProductTypes)ProductTypeComboBox.SelectedItem).product_type_id;
+            _currentRequest.client_id = ((Clients)ClientComboBox.SelectedItem).client_id;
 
             context.SaveChanges();
             MessageBox.Show("Данные товара обновлены");

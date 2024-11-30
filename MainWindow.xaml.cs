@@ -36,35 +36,37 @@ namespace WpfApp1
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            RefreshTechnoServiceDataGrid();
-            ComboStatus.ItemsSource = LogiClickeEntities.GetContext().RequestStatus.ToList();
-            Box.Text = LogiClickeEntities.GetContext().Requests.Count(r => r.status_id == 2).ToString();
+            RefreshNetoSkyDataBaseDataGrid();
+            ComboStatus.ItemsSource = NetoSkyDataBaseEntities.GetContext().RequestStatus.ToList();
+            Box.Text = NetoSkyDataBaseEntities.GetContext().Requests.Count(r => r.status_id == 2).ToString();
             Vis();
         }
 
-        private void RefreshTechnoServiceDataGrid()
+        private void RefreshNetoSkyDataBaseDataGrid()
         {
-            var context = LogiClickeEntities.GetContext();
+            var context = NetoSkyDataBaseEntities.GetContext();
             var requestWithRelations = context.Requests
-                .Include(r => r.Subject)
-                .Include(r => r.FaultTypes)
-                .Include(r => r.Childs)
-                .Include(r => r.Teachers)
+                .Include(r => r.Product)
+                .Include(r => r.ProductTypes)
+                .Include(r => r.Clients)
+                .Include(r => r.Workers)
                 .ToList();
 
-            TechnoService.ItemsSource = requestWithRelations;
+            NetoSky.ItemsSource = requestWithRelations;
         }
         private void Vis()
         {
             switch (Authorization.authorizationRole)
             {
                 case "Администратор":
+                    MessageBox.Show("Здравствуйте, Администратор!");
                     break;
                 case "Модератор":
-                    BtnAdd.Visibility = Visibility.Collapsed;
+                    MessageBox.Show("Здравствуйте, Модератор!");
                     BtnDelet.Visibility = Visibility.Collapsed;
                     break;
                 case "Пользователь":
+                    MessageBox.Show("Здравствуйте, Пользователь!");
                     BtnEdit_Invisible.Visibility = Visibility.Collapsed;
                     BtnDelet.Visibility = Visibility.Collapsed;
                     break;
@@ -80,7 +82,7 @@ namespace WpfApp1
                 RefreshWindow addEditWindow = new RefreshWindow(selectedRequest);
                 if (addEditWindow.ShowDialog() == true)
                 {
-                    RefreshTechnoServiceDataGrid();
+                    RefreshNetoSkyDataBaseDataGrid();
                 }
             }
         }
@@ -90,26 +92,26 @@ namespace WpfApp1
             AddEditWindow addEditWindow = new AddEditWindow();
             if(addEditWindow.ShowDialog() == true) 
             {
-                RefreshTechnoServiceDataGrid();
+                RefreshNetoSkyDataBaseDataGrid();
             }
         }
 
         private void BtnDelet_Click(object sender, RoutedEventArgs e)
         {
-            var servisForRemoving = TechnoService.SelectedItems.Cast<Requests>().ToList();
+            var servisForRemoving = NetoSky.SelectedItems.Cast<Requests>().ToList();
             if (servisForRemoving.Any() && MessageBox.Show($"Вы точно хотите удалить следующее количество {servisForRemoving.Count()} элементов?", "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
-                var context = LogiClickeEntities.GetContext();
+                var context = NetoSkyDataBaseEntities.GetContext();
                 context.Requests.RemoveRange(servisForRemoving);
                 context.SaveChanges();
                 MessageBox.Show("Данные успешно удалены!");
-                RefreshTechnoServiceDataGrid();
+                RefreshNetoSkyDataBaseDataGrid();
             }
         }
 
         private void BtnUp_Click(object sender, RoutedEventArgs e) 
         {
-            RefreshTechnoServiceDataGrid();
+            RefreshNetoSkyDataBaseDataGrid();
         }
 
         private void BtnOut_Click(object sender, RoutedEventArgs e)
@@ -117,12 +119,12 @@ namespace WpfApp1
             if (ComboStatus.SelectedItem is RequestStatus selectedStatus)
             {
                 int selectedStatusID = selectedStatus.status_id;
-                var context = LogiClickeEntities.GetContext();
-                TechnoService.ItemsSource = context.Requests
-                    .Include(r => r.Subject)
-                    .Include(r => r.FaultTypes)
-                    .Include(r => r.Childs)
-                    .Include(r => r.Teachers)
+                var context = NetoSkyDataBaseEntities.GetContext();
+                NetoSky.ItemsSource = context.Requests
+                    .Include(r => r.Product)
+                    .Include(r => r.ProductTypes)
+                    .Include(r => r.Clients)
+                    .Include(r => r.Workers)
                     .ToList();
             }
         }
@@ -130,22 +132,22 @@ namespace WpfApp1
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var searchText = SearchBox.Text.ToLower();
-            var context = LogiClickeEntities.GetContext();
+            var context = NetoSkyDataBaseEntities.GetContext();
             try
             {
-                TechnoService.ItemsSource = context.Requests
-                .Include(r => r.Subject)
-                .Include(r => r.FaultTypes)
-                .Include(r => r.Childs)
-                .Include(r => r.Teachers)
+                NetoSky.ItemsSource = context.Requests
+                .Include(r => r.Product)
+                .Include(r => r.ProductTypes)
+                .Include(r => r.Clients)
+                .Include(r => r.Workers)
                 .Where(r =>
                 r.application_number.ToString().Contains(searchText) ||
-                r.Subject.subject_name.ToLower().Contains(searchText) ||
-                r.FaultTypes.fault_type_name.ToLower().Contains(searchText) ||
-                r.problem_description.ToLower().Contains(searchText) ||
-                r.Childs.child_name.ToLower().Contains(searchText) ||
+                r.Product.product_name.ToLower().Contains(searchText) ||
+                r.ProductTypes.product_type_name.ToLower().Contains(searchText) ||
+                r.product_description.ToLower().Contains(searchText) ||
+                r.Clients.client_name.ToLower().Contains(searchText) ||
                 r.RequestStatus.status_name.ToLower().Contains(searchText) ||
-                r.Teachers.teacher_name.ToLower().Contains(searchText))
+                r.Workers.worker_name.ToLower().Contains(searchText))
                 .ToList();
             }
 

@@ -21,9 +21,9 @@ namespace WpfApp1
     public partial class AddEditWindow : Window
     {
         private Requests request = new Requests();
-        private Subject subject = new Subject();
-        private FaultTypes faultType = new FaultTypes();
-        private Childs child = new Childs();   
+        private Product product = new Product();
+        private ProductTypes productType = new ProductTypes();
+        private Clients client = new Clients();   
         public AddEditWindow()
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace WpfApp1
                 this.Top = (screenHeight - this.Height) / 2;
             };
             DataContext = request;
-            ComboStatus.ItemsSource = LogiClickeEntities.GetContext().RequestStatus.ToList();
+            ComboWorker.ItemsSource = NetoSkyDataBaseEntities.GetContext().Workers.ToList();
         }
         private void BtnSave_Click(Object sender, RoutedEventArgs e)
         {
@@ -48,27 +48,27 @@ namespace WpfApp1
             else if (!int.TryParse(request.application_number.ToString(), out int applicationNumber) || applicationNumber < 0)
                 error.AppendLine("Номер товара должен иметь положительное или отрицательное значение!");
 
-            else if (LogiClickeEntities.GetContext().Requests.Any(row => row.application_number == request.application_number))
+            else if (NetoSkyDataBaseEntities.GetContext().Requests.Any(row => row.application_number == request.application_number))
                 error.AppendLine("Номер товара уже существует!");
 
             if (request.request_date == null || request.request_date == DateTime.MinValue)
                 error.AppendLine("Укажите дату!");
 
-            if (string.IsNullOrWhiteSpace(request.problem_description))
+            if (string.IsNullOrWhiteSpace(request.product_description))
                 error.AppendLine("Укажите характиристики!");
 
-            if (ComboStatus.SelectedItem != null && ComboStatus.SelectedItem is RequestStatus selectedStatus)
-                request.status_id = selectedStatus.status_id;
-            else error.AppendLine("Выберите статус товара!");
+            if (ComboWorker.SelectedItem != null && ComboWorker.SelectedItem is Workers selectedWorker)
+                request.worker_id = selectedWorker.worker_id;
+            else error.AppendLine("Выберите сотрудника прикрепленного к заказу!");
 
-            if (string.IsNullOrWhiteSpace(SubjectTextBox.Text))
+            if (string.IsNullOrWhiteSpace(ProductTextBox.Text))
                 error.AppendLine("Укажите товар!");
 
-            if (string.IsNullOrWhiteSpace(ChildTextBox.Text))
+            if (string.IsNullOrWhiteSpace(ClientTextBox.Text))
                 error.AppendLine("Укажите имя клиента!");
 
-            if (string.IsNullOrWhiteSpace(FaultTypeTextBox.Text))
-                error.AppendLine("Укажите тип неисправности!");
+            if (string.IsNullOrWhiteSpace(ProductTypeTextBox.Text))
+                error.AppendLine("Укажите тип товара!");
 
             if (error.Length > 0)
             {
@@ -78,23 +78,23 @@ namespace WpfApp1
 
             try
             {
-                var context = LogiClickeEntities.GetContext();
-                subject.subject_name = SubjectTextBox.Text;         
-                faultType.fault_type_name = FaultTypeTextBox.Text;
-                child.child_name = ChildTextBox.Text;
+                var context = NetoSkyDataBaseEntities.GetContext();
+                product.product_name = ProductTextBox.Text;         
+                productType.product_type_name = ProductTypeTextBox.Text;
+                client.client_name = ClientTextBox.Text;
 
-                context.Subject.Add(subject);             
-                context.FaultTypes.Add(faultType);
-                context.Childs.Add(child);
-                context.SaveChanges();
+                context.Product.Add(product);             
+                context.ProductTypes.Add(productType);
+                context.Clients.Add(client);
 
-                var equipmentId = subject.subject_id;              
-                var faultTypeid = faultType.fault_type_id;
-                var childID = child.child_id;
+                var productId = product.product_id;              
+                var productTypeid = productType.product_type_id;
+                var clientID = client.client_id;
 
-                request.subject_id = equipmentId;
-                request.fault_type_id = faultTypeid;
-                request.child_id = childID;
+                request.product_id = productId;
+                request.product_type_id = productTypeid;
+                request.client_id = clientID;
+                request.status_id = 1;
 
                 context.Requests.Add(request);
                 context.SaveChanges();

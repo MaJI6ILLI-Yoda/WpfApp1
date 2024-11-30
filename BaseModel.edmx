@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище LogiClickeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище NetoSkyDataBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="id_account" />
@@ -16,19 +16,26 @@
           <Property Name="EmailAdress" Type="nvarchar" MaxLength="100" />
           <Property Name="id_role" Type="int" />
         </EntityType>
-        <EntityType Name="Childs">
+        <EntityType Name="Clients">
           <Key>
-            <PropertyRef Name="child_id" />
+            <PropertyRef Name="client_id" />
           </Key>
-          <Property Name="child_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="child_name" Type="varchar" MaxLength="255" />
+          <Property Name="client_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="client_name" Type="varchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="FaultTypes">
+        <EntityType Name="Product">
           <Key>
-            <PropertyRef Name="fault_type_id" />
+            <PropertyRef Name="product_id" />
           </Key>
-          <Property Name="fault_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fault_type_name" Type="varchar" MaxLength="255" />
+          <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_name" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="ProductTypes">
+          <Key>
+            <PropertyRef Name="product_type_id" />
+          </Key>
+          <Property Name="product_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="product_type_name" Type="varchar" MaxLength="255" />
         </EntityType>
         <EntityType Name="Requests">
           <Key>
@@ -37,12 +44,12 @@
           <Property Name="request_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="application_number" Type="int" />
           <Property Name="request_date" Type="date" />
-          <Property Name="subject_id" Type="int" />
-          <Property Name="fault_type_id" Type="int" />
-          <Property Name="problem_description" Type="text" />
-          <Property Name="child_id" Type="int" />
+          <Property Name="product_id" Type="int" />
+          <Property Name="product_type_id" Type="int" />
+          <Property Name="product_description" Type="text" />
+          <Property Name="client_id" Type="int" />
           <Property Name="status_id" Type="int" />
-          <Property Name="teacher_id" Type="int" />
+          <Property Name="worker_id" Type="int" />
         </EntityType>
         <EntityType Name="RequestStatus">
           <Key>
@@ -58,21 +65,14 @@
           <Property Name="id_role" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="name_role" Type="nvarchar" MaxLength="45" />
         </EntityType>
-        <EntityType Name="Subject">
+        <EntityType Name="Workers">
           <Key>
-            <PropertyRef Name="subject_id" />
+            <PropertyRef Name="worker_id" />
           </Key>
-          <Property Name="subject_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="subject_name" Type="varchar" MaxLength="255" />
+          <Property Name="worker_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="worker_name" Type="varchar" MaxLength="255" />
         </EntityType>
-        <EntityType Name="Teachers">
-          <Key>
-            <PropertyRef Name="teacher_id" />
-          </Key>
-          <Property Name="teacher_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="teacher_name" Type="varchar" MaxLength="255" />
-        </EntityType>
-        <Association Name="FK__Account__id_role__66EA454A">
+        <Association Name="FK__Account__id_role__7755B73D">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -84,31 +84,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__child___753864A1">
-          <End Role="Childs" Type="Self.Childs" Multiplicity="0..1" />
+        <Association Name="FK__Requests__client__05A3D694">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Childs">
-              <PropertyRef Name="child_id" />
+            <Principal Role="Clients">
+              <PropertyRef Name="client_id" />
             </Principal>
             <Dependent Role="Requests">
-              <PropertyRef Name="child_id" />
+              <PropertyRef Name="client_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__fault___74444068">
-          <End Role="FaultTypes" Type="Self.FaultTypes" Multiplicity="0..1" />
+        <Association Name="FK__Requests__produc__03BB8E22">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="FaultTypes">
-              <PropertyRef Name="fault_type_id" />
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
             </Principal>
             <Dependent Role="Requests">
-              <PropertyRef Name="fault_type_id" />
+              <PropertyRef Name="product_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__status__762C88DA">
+        <Association Name="FK__Requests__produc__04AFB25B">
+          <End Role="ProductTypes" Type="Self.ProductTypes" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypes">
+              <PropertyRef Name="product_type_id" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="product_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__status__0697FACD">
           <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -120,61 +132,49 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__subjec__73501C2F">
-          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+        <Association Name="FK__Requests__worker__078C1F06">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="subject_id" />
+            <Principal Role="Workers">
+              <PropertyRef Name="worker_id" />
             </Principal>
             <Dependent Role="Requests">
-              <PropertyRef Name="subject_id" />
+              <PropertyRef Name="worker_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__teache__7720AD13">
-          <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
-          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teachers">
-              <PropertyRef Name="teacher_id" />
-            </Principal>
-            <Dependent Role="Requests">
-              <PropertyRef Name="teacher_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="Хранилище LogiClickeModelContainer">
+        <EntityContainer Name="Хранилище NetoSkyDataBaseModelContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Childs" EntityType="Self.Childs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="FaultTypes" EntityType="Self.FaultTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductTypes" EntityType="Self.ProductTypes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Requests" EntityType="Self.Requests" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RequestStatus" EntityType="Self.RequestStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Teachers" EntityType="Self.Teachers" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Account__id_role__66EA454A" Association="Self.FK__Account__id_role__66EA454A">
+          <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Account__id_role__7755B73D" Association="Self.FK__Account__id_role__7755B73D">
             <End Role="Role" EntitySet="Role" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__child___753864A1" Association="Self.FK__Requests__child___753864A1">
-            <End Role="Childs" EntitySet="Childs" />
+          <AssociationSet Name="FK__Requests__client__05A3D694" Association="Self.FK__Requests__client__05A3D694">
+            <End Role="Clients" EntitySet="Clients" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__fault___74444068" Association="Self.FK__Requests__fault___74444068">
-            <End Role="FaultTypes" EntitySet="FaultTypes" />
+          <AssociationSet Name="FK__Requests__produc__03BB8E22" Association="Self.FK__Requests__produc__03BB8E22">
+            <End Role="Product" EntitySet="Product" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__status__762C88DA" Association="Self.FK__Requests__status__762C88DA">
+          <AssociationSet Name="FK__Requests__produc__04AFB25B" Association="Self.FK__Requests__produc__04AFB25B">
+            <End Role="ProductTypes" EntitySet="ProductTypes" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__status__0697FACD" Association="Self.FK__Requests__status__0697FACD">
             <End Role="RequestStatus" EntitySet="RequestStatus" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__subjec__73501C2F" Association="Self.FK__Requests__subjec__73501C2F">
-            <End Role="Subject" EntitySet="Subject" />
-            <End Role="Requests" EntitySet="Requests" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Requests__teache__7720AD13" Association="Self.FK__Requests__teache__7720AD13">
-            <End Role="Teachers" EntitySet="Teachers" />
+          <AssociationSet Name="FK__Requests__worker__078C1F06" Association="Self.FK__Requests__worker__078C1F06">
+            <End Role="Workers" EntitySet="Workers" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
         </EntityContainer>
@@ -182,7 +182,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LogiClickeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="NetoSkyDataBaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="id_account" />
@@ -193,23 +193,31 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="EmailAdress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="id_role" Type="Int32" />
-          <NavigationProperty Name="Role" Relationship="Self.FK__Account__id_role__66EA454A" FromRole="Account" ToRole="Role" />
+          <NavigationProperty Name="Role" Relationship="Self.FK__Account__id_role__7755B73D" FromRole="Account" ToRole="Role" />
         </EntityType>
-        <EntityType Name="Childs">
+        <EntityType Name="Clients">
           <Key>
-            <PropertyRef Name="child_id" />
+            <PropertyRef Name="client_id" />
           </Key>
-          <Property Name="child_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="child_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__child___753864A1" FromRole="Childs" ToRole="Requests" />
+          <Property Name="client_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="client_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__client__05A3D694" FromRole="Clients" ToRole="Requests" />
         </EntityType>
-        <EntityType Name="FaultTypes">
+        <EntityType Name="Product">
           <Key>
-            <PropertyRef Name="fault_type_id" />
+            <PropertyRef Name="product_id" />
           </Key>
-          <Property Name="fault_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fault_type_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__fault___74444068" FromRole="FaultTypes" ToRole="Requests" />
+          <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__produc__03BB8E22" FromRole="Product" ToRole="Requests" />
+        </EntityType>
+        <EntityType Name="ProductTypes">
+          <Key>
+            <PropertyRef Name="product_type_id" />
+          </Key>
+          <Property Name="product_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="product_type_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__produc__04AFB25B" FromRole="ProductTypes" ToRole="Requests" />
         </EntityType>
         <EntityType Name="Requests">
           <Key>
@@ -218,17 +226,17 @@
           <Property Name="request_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="application_number" Type="Int32" />
           <Property Name="request_date" Type="DateTime" Precision="0" />
-          <Property Name="subject_id" Type="Int32" />
-          <Property Name="fault_type_id" Type="Int32" />
-          <Property Name="problem_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="child_id" Type="Int32" />
+          <Property Name="product_id" Type="Int32" />
+          <Property Name="product_type_id" Type="Int32" />
+          <Property Name="product_description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="client_id" Type="Int32" />
           <Property Name="status_id" Type="Int32" />
-          <Property Name="teacher_id" Type="Int32" />
-          <NavigationProperty Name="Childs" Relationship="Self.FK__Requests__child___753864A1" FromRole="Requests" ToRole="Childs" />
-          <NavigationProperty Name="FaultTypes" Relationship="Self.FK__Requests__fault___74444068" FromRole="Requests" ToRole="FaultTypes" />
-          <NavigationProperty Name="RequestStatus" Relationship="Self.FK__Requests__status__762C88DA" FromRole="Requests" ToRole="RequestStatus" />
-          <NavigationProperty Name="Subject" Relationship="Self.FK__Requests__subjec__73501C2F" FromRole="Requests" ToRole="Subject" />
-          <NavigationProperty Name="Teachers" Relationship="Self.FK__Requests__teache__7720AD13" FromRole="Requests" ToRole="Teachers" />
+          <Property Name="worker_id" Type="Int32" />
+          <NavigationProperty Name="Clients" Relationship="Self.FK__Requests__client__05A3D694" FromRole="Requests" ToRole="Clients" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__Requests__produc__03BB8E22" FromRole="Requests" ToRole="Product" />
+          <NavigationProperty Name="ProductTypes" Relationship="Self.FK__Requests__produc__04AFB25B" FromRole="Requests" ToRole="ProductTypes" />
+          <NavigationProperty Name="RequestStatus" Relationship="Self.FK__Requests__status__0697FACD" FromRole="Requests" ToRole="RequestStatus" />
+          <NavigationProperty Name="Workers" Relationship="Self.FK__Requests__worker__078C1F06" FromRole="Requests" ToRole="Workers" />
         </EntityType>
         <EntityType Name="RequestStatus">
           <Key>
@@ -236,7 +244,7 @@
           </Key>
           <Property Name="status_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="status_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__status__762C88DA" FromRole="RequestStatus" ToRole="Requests" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__status__0697FACD" FromRole="RequestStatus" ToRole="Requests" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -244,25 +252,17 @@
           </Key>
           <Property Name="id_role" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name_role" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Account" Relationship="Self.FK__Account__id_role__66EA454A" FromRole="Role" ToRole="Account" />
+          <NavigationProperty Name="Account" Relationship="Self.FK__Account__id_role__7755B73D" FromRole="Role" ToRole="Account" />
         </EntityType>
-        <EntityType Name="Subject">
+        <EntityType Name="Workers">
           <Key>
-            <PropertyRef Name="subject_id" />
+            <PropertyRef Name="worker_id" />
           </Key>
-          <Property Name="subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="subject_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__subjec__73501C2F" FromRole="Subject" ToRole="Requests" />
+          <Property Name="worker_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="worker_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__worker__078C1F06" FromRole="Workers" ToRole="Requests" />
         </EntityType>
-        <EntityType Name="Teachers">
-          <Key>
-            <PropertyRef Name="teacher_id" />
-          </Key>
-          <Property Name="teacher_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="teacher_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Requests" Relationship="Self.FK__Requests__teache__7720AD13" FromRole="Teachers" ToRole="Requests" />
-        </EntityType>
-        <Association Name="FK__Account__id_role__66EA454A">
+        <Association Name="FK__Account__id_role__7755B73D">
           <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
           <End Role="Account" Type="Self.Account" Multiplicity="*" />
           <ReferentialConstraint>
@@ -274,31 +274,43 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__child___753864A1">
-          <End Role="Childs" Type="Self.Childs" Multiplicity="0..1" />
+        <Association Name="FK__Requests__client__05A3D694">
+          <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Childs">
-              <PropertyRef Name="child_id" />
+            <Principal Role="Clients">
+              <PropertyRef Name="client_id" />
             </Principal>
             <Dependent Role="Requests">
-              <PropertyRef Name="child_id" />
+              <PropertyRef Name="client_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__fault___74444068">
-          <End Role="FaultTypes" Type="Self.FaultTypes" Multiplicity="0..1" />
+        <Association Name="FK__Requests__produc__03BB8E22">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="FaultTypes">
-              <PropertyRef Name="fault_type_id" />
+            <Principal Role="Product">
+              <PropertyRef Name="product_id" />
             </Principal>
             <Dependent Role="Requests">
-              <PropertyRef Name="fault_type_id" />
+              <PropertyRef Name="product_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__status__762C88DA">
+        <Association Name="FK__Requests__produc__04AFB25B">
+          <End Role="ProductTypes" Type="Self.ProductTypes" Multiplicity="0..1" />
+          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductTypes">
+              <PropertyRef Name="product_type_id" />
+            </Principal>
+            <Dependent Role="Requests">
+              <PropertyRef Name="product_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Requests__status__0697FACD">
           <End Role="RequestStatus" Type="Self.RequestStatus" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
@@ -310,61 +322,49 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__subjec__73501C2F">
-          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
+        <Association Name="FK__Requests__worker__078C1F06">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
           <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="subject_id" />
+            <Principal Role="Workers">
+              <PropertyRef Name="worker_id" />
             </Principal>
             <Dependent Role="Requests">
-              <PropertyRef Name="subject_id" />
+              <PropertyRef Name="worker_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Requests__teache__7720AD13">
-          <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
-          <End Role="Requests" Type="Self.Requests" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teachers">
-              <PropertyRef Name="teacher_id" />
-            </Principal>
-            <Dependent Role="Requests">
-              <PropertyRef Name="teacher_id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="LogiClickeEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="NetoSkyDataBaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Account" EntityType="Self.Account" />
-          <EntitySet Name="Childs" EntityType="Self.Childs" />
-          <EntitySet Name="FaultTypes" EntityType="Self.FaultTypes" />
+          <EntitySet Name="Clients" EntityType="Self.Clients" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="ProductTypes" EntityType="Self.ProductTypes" />
           <EntitySet Name="Requests" EntityType="Self.Requests" />
           <EntitySet Name="RequestStatus" EntityType="Self.RequestStatus" />
           <EntitySet Name="Role" EntityType="Self.Role" />
-          <EntitySet Name="Subject" EntityType="Self.Subject" />
-          <EntitySet Name="Teachers" EntityType="Self.Teachers" />
-          <AssociationSet Name="FK__Account__id_role__66EA454A" Association="Self.FK__Account__id_role__66EA454A">
+          <EntitySet Name="Workers" EntityType="Self.Workers" />
+          <AssociationSet Name="FK__Account__id_role__7755B73D" Association="Self.FK__Account__id_role__7755B73D">
             <End Role="Role" EntitySet="Role" />
             <End Role="Account" EntitySet="Account" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__child___753864A1" Association="Self.FK__Requests__child___753864A1">
-            <End Role="Childs" EntitySet="Childs" />
+          <AssociationSet Name="FK__Requests__client__05A3D694" Association="Self.FK__Requests__client__05A3D694">
+            <End Role="Clients" EntitySet="Clients" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__fault___74444068" Association="Self.FK__Requests__fault___74444068">
-            <End Role="FaultTypes" EntitySet="FaultTypes" />
+          <AssociationSet Name="FK__Requests__produc__03BB8E22" Association="Self.FK__Requests__produc__03BB8E22">
+            <End Role="Product" EntitySet="Product" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__status__762C88DA" Association="Self.FK__Requests__status__762C88DA">
+          <AssociationSet Name="FK__Requests__produc__04AFB25B" Association="Self.FK__Requests__produc__04AFB25B">
+            <End Role="ProductTypes" EntitySet="ProductTypes" />
+            <End Role="Requests" EntitySet="Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Requests__status__0697FACD" Association="Self.FK__Requests__status__0697FACD">
             <End Role="RequestStatus" EntitySet="RequestStatus" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
-          <AssociationSet Name="FK__Requests__subjec__73501C2F" Association="Self.FK__Requests__subjec__73501C2F">
-            <End Role="Subject" EntitySet="Subject" />
-            <End Role="Requests" EntitySet="Requests" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Requests__teache__7720AD13" Association="Self.FK__Requests__teache__7720AD13">
-            <End Role="Teachers" EntitySet="Teachers" />
+          <AssociationSet Name="FK__Requests__worker__078C1F06" Association="Self.FK__Requests__worker__078C1F06">
+            <End Role="Workers" EntitySet="Workers" />
             <End Role="Requests" EntitySet="Requests" />
           </AssociationSet>
         </EntityContainer>
@@ -373,9 +373,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище LogiClickeModelContainer" CdmEntityContainer="LogiClickeEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище NetoSkyDataBaseModelContainer" CdmEntityContainer="NetoSkyDataBaseEntities">
           <EntitySetMapping Name="Account">
-            <EntityTypeMapping TypeName="LogiClickeModel.Account">
+            <EntityTypeMapping TypeName="NetoSkyDataBaseModel.Account">
               <MappingFragment StoreEntitySet="Account">
                 <ScalarProperty Name="id_account" ColumnName="id_account" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
@@ -386,39 +386,47 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Childs">
-            <EntityTypeMapping TypeName="LogiClickeModel.Childs">
-              <MappingFragment StoreEntitySet="Childs">
-                <ScalarProperty Name="child_id" ColumnName="child_id" />
-                <ScalarProperty Name="child_name" ColumnName="child_name" />
+          <EntitySetMapping Name="Clients">
+            <EntityTypeMapping TypeName="NetoSkyDataBaseModel.Clients">
+              <MappingFragment StoreEntitySet="Clients">
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
+                <ScalarProperty Name="client_name" ColumnName="client_name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="FaultTypes">
-            <EntityTypeMapping TypeName="LogiClickeModel.FaultTypes">
-              <MappingFragment StoreEntitySet="FaultTypes">
-                <ScalarProperty Name="fault_type_id" ColumnName="fault_type_id" />
-                <ScalarProperty Name="fault_type_name" ColumnName="fault_type_name" />
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="NetoSkyDataBaseModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypes">
+            <EntityTypeMapping TypeName="NetoSkyDataBaseModel.ProductTypes">
+              <MappingFragment StoreEntitySet="ProductTypes">
+                <ScalarProperty Name="product_type_id" ColumnName="product_type_id" />
+                <ScalarProperty Name="product_type_name" ColumnName="product_type_name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Requests">
-            <EntityTypeMapping TypeName="LogiClickeModel.Requests">
+            <EntityTypeMapping TypeName="NetoSkyDataBaseModel.Requests">
               <MappingFragment StoreEntitySet="Requests">
                 <ScalarProperty Name="request_id" ColumnName="request_id" />
                 <ScalarProperty Name="application_number" ColumnName="application_number" />
                 <ScalarProperty Name="request_date" ColumnName="request_date" />
-                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
-                <ScalarProperty Name="fault_type_id" ColumnName="fault_type_id" />
-                <ScalarProperty Name="problem_description" ColumnName="problem_description" />
-                <ScalarProperty Name="child_id" ColumnName="child_id" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="product_type_id" ColumnName="product_type_id" />
+                <ScalarProperty Name="product_description" ColumnName="product_description" />
+                <ScalarProperty Name="client_id" ColumnName="client_id" />
                 <ScalarProperty Name="status_id" ColumnName="status_id" />
-                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
+                <ScalarProperty Name="worker_id" ColumnName="worker_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RequestStatus">
-            <EntityTypeMapping TypeName="LogiClickeModel.RequestStatus">
+            <EntityTypeMapping TypeName="NetoSkyDataBaseModel.RequestStatus">
               <MappingFragment StoreEntitySet="RequestStatus">
                 <ScalarProperty Name="status_id" ColumnName="status_id" />
                 <ScalarProperty Name="status_name" ColumnName="status_name" />
@@ -426,26 +434,18 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="LogiClickeModel.Role">
+            <EntityTypeMapping TypeName="NetoSkyDataBaseModel.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="id_role" ColumnName="id_role" />
                 <ScalarProperty Name="name_role" ColumnName="name_role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Subject">
-            <EntityTypeMapping TypeName="LogiClickeModel.Subject">
-              <MappingFragment StoreEntitySet="Subject">
-                <ScalarProperty Name="subject_id" ColumnName="subject_id" />
-                <ScalarProperty Name="subject_name" ColumnName="subject_name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Teachers">
-            <EntityTypeMapping TypeName="LogiClickeModel.Teachers">
-              <MappingFragment StoreEntitySet="Teachers">
-                <ScalarProperty Name="teacher_id" ColumnName="teacher_id" />
-                <ScalarProperty Name="teacher_name" ColumnName="teacher_name" />
+          <EntitySetMapping Name="Workers">
+            <EntityTypeMapping TypeName="NetoSkyDataBaseModel.Workers">
+              <MappingFragment StoreEntitySet="Workers">
+                <ScalarProperty Name="worker_id" ColumnName="worker_id" />
+                <ScalarProperty Name="worker_name" ColumnName="worker_name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

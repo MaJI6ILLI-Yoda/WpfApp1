@@ -68,7 +68,7 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Button Style="{DynamicResource ButtonStyle}" Content="В корзину" Click="BtnAdd_Click" Margin="682,248,74,762" Background="#2bbb77" Foreground="#f7f7f7" BorderBrush="#2bbb77" FontSize="30" FontWeight="Bold">
+        <Button Style="{DynamicResource ButtonStyle}" Content="В корзину" Click="BtnAdd_Click" Margin="682,248,74,762" Background="#2bbb77" Foreground="#f7f7f7" BorderBrush="#2bbb77" FontSize="30" FontWeight="Bold" Cursor="Hand">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -87,7 +87,7 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Button Style="{DynamicResource ButtonStyle}" Content="В корзину" Click="BtnAdd_Click" Margin="682,583,74,427" Background="#2bbb77" Foreground="#f7f7f7" BorderBrush="#2bbb77" FontSize="30" FontWeight="Bold">
+        <Button Style="{DynamicResource ButtonStyle}" Content="В корзину" Click="BtnAdd_Click" Margin="682,583,74,427" Background="#2bbb77" Foreground="#f7f7f7" BorderBrush="#2bbb77" FontSize="30" FontWeight="Bold" Cursor="Hand">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -106,7 +106,7 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Button Style="{DynamicResource ButtonStyle}" Content="В корзину" Click="BtnAdd_Click" Margin="682,920,74,90" Background="#2bbb77" Foreground="#f7f7f7" BorderBrush="#2bbb77" FontSize="30" FontWeight="Bold">
+        <Button Style="{DynamicResource ButtonStyle}" Content="В корзину" Click="BtnAdd_Click" Margin="682,920,74,90" Background="#2bbb77" Foreground="#f7f7f7" BorderBrush="#2bbb77" FontSize="30" FontWeight="Bold" Cursor="Hand">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>

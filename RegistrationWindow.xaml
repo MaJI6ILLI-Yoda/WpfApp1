@@ -37,7 +37,7 @@
             </TextBox.Effect>
         </TextBox>
 
-        <Button Content="Зарегистрироваться" Margin="70,401,70,64" FontWeight="Bold" Background="#2bbb77" Foreground="#f7f7f7"  Click="ButtonRegistration_Click" FontSize="20" BorderThickness="0,0,0,0" Cursor="Hand" IsDefault="True">
+        <Button Content="Зарегистрироваться" Margin="70,401,70,64" FontWeight="Bold" Background="#2bbb77" Foreground="#f7f7f7" Click="ButtonRegistration_Click" FontSize="20"  BorderThickness="0,0,0,0" Cursor="Hand" IsDefault="True">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -46,6 +46,6 @@
         <Button Content="X" FontWeight="Bold" Background="#FFF5192E" Foreground="#f7f7f7" Click="ButtonRegistrationClickOut" FontSize="12" BorderThickness="0,0,0,0" Cursor="Hand" IsCancel="True" Margin="370,0,0,470"/>
 
         <Label Content="Уже есть учетная запись?" FontSize="16" Foreground="#898d9f" Margin="41,441,162,28"/>
-        <Button Content="Авторизируйтесь!" Click="BtnAuthorization_Click" Background="Transparent" Foreground="#2ebb7d" BorderThickness="0,0,0,0" FontSize="16" Margin="238,445,29,32" Cursor="Hand"/>
+        <Button  Content="Авторизируйтесь!" Click="BtnAuthorization_Click" Background="Transparent" Foreground="#2ebb7d" BorderThickness="0,0,0,0" FontSize="16" Margin="238,445,29,32" Cursor="Hand"/>
     </Grid>
 </Window>

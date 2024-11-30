@@ -6,6 +6,51 @@
         xmlns:local="clr-namespace:WpfApp1.SubWindows._1SubLumbersWindows"
         mc:Ignorable="d"
         Title="_2BalkWindow" Height="1080" Width="1000" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Background="#1e2126" WindowStyle="None" BorderThickness="2" BorderBrush="DarkGray">
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="ForestGreen"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="Transparent"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="DarkGreen"/>
+        <Style x:Key="ButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.MouseOver.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{DynamicResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource Button.Pressed.Border}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Button Background="Transparent" Click="Board_ClickClose" Panel.ZIndex="-1" IsCancel="True"/>
         <Label Background="#1e2126"/>
@@ -23,7 +68,7 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Button Content="В корзину" Click="BtnAdd_Click" Margin="682,248,74,762" Background="#2bbb77" Foreground="#f7f7f7" BorderThickness="0,0,0,0" FontSize="30" FontWeight="Bold">
+        <Button Style="{DynamicResource ButtonStyle}" Content="В корзину" Click="BtnAdd_Click" Margin="682,248,74,762" Background="#2bbb77" Foreground="#f7f7f7" BorderBrush="#2bbb77" FontSize="30" FontWeight="Bold" Cursor="Hand">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -42,7 +87,7 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Button Content="В корзину" Click="BtnAdd_Click" Margin="682,583,74,427" Background="#2bbb77" Foreground="#f7f7f7" BorderThickness="0,0,0,0" FontSize="30" FontWeight="Bold">
+        <Button Style="{DynamicResource ButtonStyle}" Content="В корзину" Click="BtnAdd_Click" Margin="682,583,74,427" Background="#2bbb77" Foreground="#f7f7f7" BorderBrush="#2bbb77" FontSize="30" FontWeight="Bold" Cursor="Hand">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -61,7 +106,7 @@
                 <DropShadowEffect/>
             </Image.Effect>
         </Image>
-        <Button Content="В корзину" Click="BtnAdd_Click" Margin="682,920,74,90" Background="#2bbb77" Foreground="#f7f7f7" BorderThickness="0,0,0,0" FontSize="30" FontWeight="Bold">
+        <Button Style="{DynamicResource ButtonStyle}" Content="В корзину" Click="BtnAdd_Click" Margin="682,920,74,90" Background="#2bbb77" Foreground="#f7f7f7" BorderBrush="#2bbb77" FontSize="30" FontWeight="Bold" Cursor="Hand">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>

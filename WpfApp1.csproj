@@ -85,10 +85,7 @@
     <Compile Include="CatalogWindow.xaml.cs">
       <DependentUpon>CatalogWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Childs.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="FaultTypes.cs">
+    <Compile Include="Clients.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GreetingWindow1.xaml.cs">
@@ -106,6 +103,12 @@
     <Compile Include="GreetingWindow5.xaml.cs">
       <DependentUpon>GreetingWindow5.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>BaseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductTypes.cs">
+      <DependentUpon>BaseModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RefreshWindow.xaml.cs">
       <DependentUpon>RefreshWindow.xaml</DependentUpon>
     </Compile>
@@ -119,9 +122,6 @@
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Role.cs">
-      <DependentUpon>BaseModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Subject.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SubWindows\1LumbersWindow.xaml.cs">
@@ -160,7 +160,7 @@
     <Compile Include="SubWindows\8WallpaperWindow.xaml.cs">
       <DependentUpon>8WallpaperWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Teachers.cs">
+    <Compile Include="Workers.cs">
       <DependentUpon>BaseModel.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditWindow.xaml">

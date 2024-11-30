@@ -13,18 +13,18 @@ namespace WpfApp1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LogiClickeEntities : DbContext
+    public partial class NetoSkyDataBaseEntities : DbContext
     {
-        private static LogiClickeEntities _context;
+        private static NetoSkyDataBaseEntities _context;
 
-        public static LogiClickeEntities GetContext()
+        public static NetoSkyDataBaseEntities GetContext()
         {
             if (_context == null)
-                _context = new LogiClickeEntities();
+                _context = new NetoSkyDataBaseEntities();
             return _context;
         }
-        public LogiClickeEntities()
-            : base("name=LogiClickeEntities")
+        public NetoSkyDataBaseEntities()
+            : base("name=NetoSkyDataBaseEntities")
         {
         }
     
@@ -34,12 +34,12 @@ namespace WpfApp1
         }
     
         public virtual DbSet<Account> Account { get; set; }
-        public virtual DbSet<Childs> Childs { get; set; }
-        public virtual DbSet<FaultTypes> FaultTypes { get; set; }
+        public virtual DbSet<Clients> Clients { get; set; }
+        public virtual DbSet<Product> Product { get; set; }
+        public virtual DbSet<ProductTypes> ProductTypes { get; set; }
         public virtual DbSet<Requests> Requests { get; set; }
         public virtual DbSet<RequestStatus> RequestStatus { get; set; }
         public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<Subject> Subject { get; set; }
-        public virtual DbSet<Teachers> Teachers { get; set; }
+        public virtual DbSet<Workers> Workers { get; set; }
     }
 }

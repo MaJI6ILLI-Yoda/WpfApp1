@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3d7bb902412b41eeae02da8c8e6fc0aa" Name="Diagram1">
-        <EntityTypeShape EntityType="LogiClickeModel.Account" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogiClickeModel.Childs" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogiClickeModel.FaultTypes" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogiClickeModel.Requests" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogiClickeModel.RequestStatus" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogiClickeModel.Role" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogiClickeModel.Subject" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="LogiClickeModel.Teachers" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
-        <AssociationConnector Association="LogiClickeModel.FK__Account__id_role__66EA454A" ManuallyRouted="false" />
-        <AssociationConnector Association="LogiClickeModel.FK__Requests__child___753864A1" ManuallyRouted="false" />
-        <AssociationConnector Association="LogiClickeModel.FK__Requests__fault___74444068" ManuallyRouted="false" />
-        <AssociationConnector Association="LogiClickeModel.FK__Requests__status__762C88DA" ManuallyRouted="false" />
-        <AssociationConnector Association="LogiClickeModel.FK__Requests__subjec__73501C2F" ManuallyRouted="false" />
-        <AssociationConnector Association="LogiClickeModel.FK__Requests__teache__7720AD13" ManuallyRouted="false" />
+      <Diagram DiagramId="3a76168c9b7741b1965925e80ab32498" Name="Diagram1">
+        <EntityTypeShape EntityType="NetoSkyDataBaseModel.Account" Width="1.5" PointX="6.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetoSkyDataBaseModel.Clients" Width="1.5" PointX="1" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetoSkyDataBaseModel.Product" Width="1.5" PointX="1" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetoSkyDataBaseModel.ProductTypes" Width="1.5" PointX="1.875" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetoSkyDataBaseModel.Requests" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetoSkyDataBaseModel.RequestStatus" Width="1.5" PointX="4.125" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetoSkyDataBaseModel.Role" Width="1.5" PointX="4.875" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NetoSkyDataBaseModel.Workers" Width="1.5" PointX="4.875" PointY="3.125" IsExpanded="true" />
+        <AssociationConnector Association="NetoSkyDataBaseModel.FK__Account__id_role__7755B73D" ManuallyRouted="false" />
+        <AssociationConnector Association="NetoSkyDataBaseModel.FK__Requests__client__05A3D694" ManuallyRouted="false" />
+        <AssociationConnector Association="NetoSkyDataBaseModel.FK__Requests__produc__03BB8E22" ManuallyRouted="false" />
+        <AssociationConnector Association="NetoSkyDataBaseModel.FK__Requests__produc__04AFB25B" ManuallyRouted="false" />
+        <AssociationConnector Association="NetoSkyDataBaseModel.FK__Requests__status__0697FACD" ManuallyRouted="false" />
+        <AssociationConnector Association="NetoSkyDataBaseModel.FK__Requests__worker__078C1F06" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

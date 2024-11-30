@@ -12,16 +12,16 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="TechnoService" AutoGenerateColumns="false" IsReadOnly="True" CanUserResizeColumns="false" Margin="0,44,0,0" BorderThickness="0,0,0,0" Background="#383a47">
+        <DataGrid x:Name="NetoSky" AutoGenerateColumns="false" IsReadOnly="True" CanUserResizeColumns="false" Margin="0,44,0,0" BorderThickness="0,0,0,0" Background="#383a47">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер" Binding="{Binding application_number}" Width="auto"/>
                 <DataGridTextColumn Header="Дата" Binding="{Binding request_date}" Width="auto"/>
-                <DataGridTextColumn Header="Товар" Binding="{Binding Subject.subject_name}" Width="auto"/>
-                <DataGridTextColumn Header="Тип товара" Binding="{Binding FaultTypes.fault_type_name}" Width="auto"/>
-                <DataGridTextColumn Header="Характеристики" Binding="{Binding problem_description}" Width="auto"/>
-                <DataGridTextColumn Header="Клиент" Binding="{Binding Childs.child_name}" Width="auto"/>
+                <DataGridTextColumn Header="Товар" Binding="{Binding Product.product_name}" Width="auto"/>
+                <DataGridTextColumn Header="Тип товара" Binding="{Binding ProductTypes.product_type_name}" Width="auto"/>
+                <DataGridTextColumn Header="Характеристики" Binding="{Binding product_description}" Width="auto"/>
+                <DataGridTextColumn Header="Клиент" Binding="{Binding Clients.client_name}" Width="auto"/>
                 <DataGridTextColumn Header="Статус" Binding="{Binding RequestStatus.status_name}" Width="auto"/>
-                <DataGridTextColumn Header="Сотрудник" Binding="{Binding Teachers.teacher_name}" Width="auto"/>
+                <DataGridTextColumn Header="Сотрудник" Binding="{Binding Workers.worker_name}" Width="auto"/>
                 <DataGridTemplateColumn Width="auto" x:Name="BtnEdit_Invisible">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

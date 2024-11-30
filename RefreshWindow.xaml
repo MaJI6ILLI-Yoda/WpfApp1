@@ -13,25 +13,19 @@
 
         <TextBlock FontSize="18"/>
         <TextBlock Text="Статус товара" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
-        <ComboBox x:Name="StatusComboBox" DisplayMemberPath="status_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0">
-            <ComboBox.Resources>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Background" Value="Red"/>
-                </Style>
-            </ComboBox.Resources>
-        </ComboBox>
+        <ComboBox x:Name="StatusComboBox" DisplayMemberPath="status_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
 
         <TextBlock FontSize="18"/>
         <TextBlock Text="Сотрудник" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
-        <ComboBox x:Name="TeacherComboBox" DisplayMemberPath="teacher_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
+        <ComboBox x:Name="WorkerComboBox" DisplayMemberPath="worker_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
 
         <TextBlock FontSize="18"/>
         <TextBlock Text="Тип товара" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
-        <ComboBox x:Name="FaultTypeComboBox" DisplayMemberPath="fault_type_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
+        <ComboBox x:Name="ProductTypeComboBox" DisplayMemberPath="product_type_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
 
         <TextBlock FontSize="18"/>
         <TextBlock Text="Клиент" Foreground="#f7f7f7" FontSize="18" HorizontalAlignment="Center"/>
-        <ComboBox x:Name="ChildComboBox" DisplayMemberPath="child_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
+        <ComboBox x:Name="ClientComboBox" DisplayMemberPath="client_name" FontSize="18" Background="#383a47" Foreground="#000000" BorderThickness="0,0,0,0"/>
 
         <TextBlock FontSize="24"/>
         <Button Content="Обновить" Click="UpdateButtonClick" Background="#2bbb77" Foreground="#f7f7f7" Margin="0,3,0,0" Height="30" FontSize="18" FontWeight="Bold" BorderThickness="0,0,0,0" IsDefault="True"/>

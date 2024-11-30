@@ -23,7 +23,7 @@
             </TextBox.Effect>
         </TextBox>
 
-        <Button Content="Войти" Margin="118,339,118,126" FontWeight="Bold" Background="#2bbb77" Foreground="#f7f7f7"  Click="ButtonLogin" FontSize="20" BorderThickness="0,0,0,0" Cursor="Hand" IsDefault="True">
+        <Button  Content="Войти" Margin="118,339,118,126" FontWeight="Bold" Background="#2bbb77" Foreground="#f7f7f7"  Click="ButtonLogin" FontSize="20" BorderThickness="0,0,0,0" Cursor="Hand" IsDefault="True">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>

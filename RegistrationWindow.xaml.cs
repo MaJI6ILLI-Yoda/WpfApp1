@@ -85,7 +85,7 @@ namespace WpfApp1
 
             if (string.IsNullOrWhiteSpace(account.PhoneNumber))
                 errorMessages.AppendLine("Поле 'Номер телефона' не может быть пустым!");
-            else if (LogiClickeEntities.GetContext().Account.Any(row => row.PhoneNumber == account.PhoneNumber))
+            else if (NetoSkyDataBaseEntities.GetContext().Account.Any(row => row.PhoneNumber == account.PhoneNumber))
                 errorMessages.AppendLine("Данный Номер Телефона уже существует!");
 
             // Проверка email
@@ -96,7 +96,7 @@ namespace WpfApp1
 
             if (string.IsNullOrWhiteSpace(account.EmailAdress))
                 errorMessages.AppendLine("Поле 'Email' не может быть пустым!");
-            else if (LogiClickeEntities.GetContext().Account.Any(row => row.EmailAdress == account.EmailAdress))
+            else if (NetoSkyDataBaseEntities.GetContext().Account.Any(row => row.EmailAdress == account.EmailAdress))
                 errorMessages.AppendLine("Данный Email уже существует!");
 
             // Проверка пароля
@@ -117,8 +117,8 @@ namespace WpfApp1
 
             try
             {
-                var context = LogiClickeEntities.GetContext();
-                account.id_role = 3; // Предполагаем, что роль всегда одна и та же
+                var context = NetoSkyDataBaseEntities.GetContext();
+                account.id_role = 3; 
 
                 context.Account.Add(account);
                 context.SaveChanges();
